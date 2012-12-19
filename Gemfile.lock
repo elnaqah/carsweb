@@ -129,6 +129,7 @@ GEM
       activesupport (>= 3.0)
       railties (>= 3.0)
       rspec (~> 2.11.0)
+    rspec-rails-matchers (0.2.1)
     ruby-debug-base19 (0.11.25)
       columnize (>= 0.3.1)
       linecache19 (>= 0.5.11)
@@ -185,7 +186,9 @@ DEPENDENCIES
   launchy
   pg
   rails (= 3.2.0)
+  rspec
   rspec-rails
+  rspec-rails-matchers
   ruby-debug19
   sass-rails (~> 3.2.3)
   simplecov

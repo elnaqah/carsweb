@@ -30,6 +30,8 @@ group :development, :test do
   gem 'launchy'
   gem 'rspec-rails'
   gem 'simplecov'
+  gem 'rspec'
+  gem 'rspec-rails-matchers'
 end
 
 group :test do
