@@ -3,33 +3,11 @@
 <table>
   <tr>
     <th>Year</th>
-    <th>Specs</th>
-    <th>Engin size</th>
-    <th>Gearbox</th>
-    <th>Shifts</th>
-    <th>Type</th>
     <th>Cylinders</th>
-    <th>Valves</th>
-    <th>Injection</th>
-    <th>Torque</th>
     <th>Horse power</th>
-    <th>Drive wheels</th>
-    <th>Seats</th>
     <th>Doors</th>
-    <th>Fuel consumption</th>
-    <th>Fuel tank</th>
     <th>Air bags</th>
-    <th>Air bags front</th>
-    <th>Electric seat</th>
     <th>Abs</th>
-    <th>Ebd</th>
-    <th>Esp</th>
-    <th>Alarm</th>
-    <th>Tier size</th>
-    <th>Front fog light</th>
-    <th>Rear fog light</th>
-    <th>Electric mirrors</th>
-    <th>Electric windows</th>
     <th></th>
     <th></th>
     <th></th>
@@ -38,33 +16,11 @@
 <% @cars.each do |car| %>
   <tr>
     <td><%= car.year %></td>
-    <td><%= car.specs %></td>
-    <td><%= car.engin_size %></td>
-    <td><%= car.gearbox %></td>
-    <td><%= car.shifts %></td>
-    <td><%= car.type %></td>
     <td><%= car.cylinders %></td>
-    <td><%= car.valves %></td>
-    <td><%= car.injection %></td>
-    <td><%= car.torque %></td>
     <td><%= car.horse_power %></td>
-    <td><%= car.drive_wheels %></td>
-    <td><%= car.seats %></td>
     <td><%= car.doors %></td>
-    <td><%= car.fuel_consumption %></td>
-    <td><%= car.fuel_tank %></td>
     <td><%= car.air_bags %></td>
-    <td><%= car.air_bags_front %></td>
-    <td><%= car.electric_seat %></td>
     <td><%= car.abs %></td>
-    <td><%= car.ebd %></td>
-    <td><%= car.esp %></td>
-    <td><%= car.alarm %></td>
-    <td><%= car.tier_size %></td>
-    <td><%= car.front_fog_light %></td>
-    <td><%= car.rear_fog_light %></td>
-    <td><%= car.electric_mirrors %></td>
-    <td><%= car.electric_windows %></td>
     <td><%= link_to 'Show', car %></td>
     <td><%= link_to 'Edit', edit_car_path(car) %></td>
     <td><%= link_to 'Destroy', car, confirm: 'Are you sure?', method: :delete %></td>
