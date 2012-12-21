@@ -1,4 +1,6 @@
 Carsweb::Application.routes.draw do
+  resources :car_models
+
   resources :cars
 
   # The priority is based upon order of creation:
