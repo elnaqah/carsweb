@@ -1,7 +1,6 @@
 class CreateCars < ActiveRecord::Migration
   def change
     create_table :cars do |t|
-      t.string :model
       t.date :year
       t.string :specs
       t.integer :engin_size
