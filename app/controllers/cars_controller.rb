@@ -3,7 +3,7 @@ class CarsController < ApplicationController
   # GET /cars.json
   def index
     @cars = Car.all
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @cars }
@@ -14,7 +14,7 @@ class CarsController < ApplicationController
   # GET /cars/1.json
   def show
     @car = Car.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @car }
@@ -25,7 +25,7 @@ class CarsController < ApplicationController
   # GET /cars/new.json
   def new
     @car = Car.new
-
+    @models= CarModel.get_models_names
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @car }
@@ -35,13 +35,14 @@ class CarsController < ApplicationController
   # GET /cars/1/edit
   def edit
     @car = Car.find(params[:id])
+    @models= CarModel.get_models_names
   end
 
   # POST /cars
   # POST /cars.json
   def create
     @car = Car.new(params[:car])
-
+    #logger.debug(@car.inspect)
     respond_to do |format|
       if @car.save
         format.html { redirect_to @car, notice: 'Car was successfully created.' }

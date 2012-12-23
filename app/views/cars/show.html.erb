@@ -14,6 +14,10 @@
           <b><%= t("activerecord.attributes.car.price", :default => t("activerecord.labels.price", :default => "Price")) %>:</b>
           <%= @car.price %>
         </p>
+         <p>
+          <b><%= t("activerecord.attributes.car.car_model_id", :default => t("activerecord.labels.car_model_id", :default => "Car model")) %>:</b>
+          <%= @car.car_model.name %>
+        </p>
         <p>
           <b><%= t("activerecord.attributes.car.year", :default => t("activerecord.labels.year", :default => "Year")) %>:</b>
           <%= @car.year %>
@@ -44,15 +48,13 @@
           <%= @car.abs %>
         </p>
 
-        <p>
-          <b><%= t("activerecord.attributes.car.car_model_id", :default => t("activerecord.labels.car_model_id", :default => "Car model")) %>:</b>
-          <%= @car.car_model_id %>
-        </p>
-
+        
+<% if false %>
         <p>
           <b><%= t("activerecord.attributes.car.owner_id", :default => t("activerecord.labels.owner_id", :default => "Owner")) %>:</b>
           <%= @car.owner_id %>
         </p>
+<%end%>
       <div class="wat-cf">
         <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_car_path(@car), :class => "button" %>
         <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), car_path(@car), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>

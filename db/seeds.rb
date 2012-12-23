@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+models = [{:name => 'Volvo'},
+          {:name => 'Mercedes'},
+          {:name => 'Dodge'},
+          {:name => 'Mini-coper'},
+        
+     ]
+
+models.each do |md|
+  CarModel.create!(md)
+end

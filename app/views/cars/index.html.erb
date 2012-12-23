@@ -14,8 +14,11 @@
           <th>
 			Price
           </th>
-                    <th>
-            <%= t("activerecord.attributes.car.year", :default => t("activerecord.labels.year", :default => "Year")) %>
+          <th>
+			Model
+          </th>
+          <th>
+            Year
           </th>
           <th>
 			Cylinders
@@ -43,7 +46,10 @@
           <td>
             <%= car.price %>
           </td>
-                    <td>
+          <td>
+            <%= car.car_model.name %>
+          </td>
+         <td>
             <%= car.year %>
           </td>
           <td>

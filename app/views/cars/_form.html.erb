@@ -5,6 +5,11 @@
     <span class="description">Ex: a simple text</span>
   </div>
   <div class="group">
+    <%= f.label :car_model_id, t("activerecord.attributes.car.car_model_id", :default => "Car model"), :class => :label %>
+    <%= f.select :car_model_id, @models %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+  <div class="group">
     <%= f.label :year, t("activerecord.attributes.car.year", :default => "Year"), :class => :label %>
     <%= f.date_select :year, :class => 'date_select' %>
     <span class="description">Ex: a simple text</span>
@@ -40,17 +45,14 @@
     <span class="description">Ex: a simple text</span>
   </div>
 
-  <div class="group">
-    <%= f.label :car_model_id, t("activerecord.attributes.car.car_model_id", :default => "Car model"), :class => :label %>
-    <%= f.number_field :car_model_id, :class => 'number_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
+  
+ <% if false %>
   <div class="group">
     <%= f.label :owner_id, t("activerecord.attributes.car.owner_id", :default => "Owner"), :class => :label %>
     <%= f.number_field :owner_id, :class => 'number_field' %>
     <span class="description">Ex: a simple text</span>
   </div>
+  <% end %>
 <div class="group navform wat-cf">
   <button class="button" type="submit">
     <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => "Save") %>
