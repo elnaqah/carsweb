@@ -1,0 +1,60 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+#
+# Examples:
+#
+#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   Mayor.create(name: 'Emanuel', city: cities.first)
+cars_models=[{:name=>'Skoda'},{:name=>'Honda'},{:name=>'Toyota'},{:name=>'BMW'},{:name=>'KIA'},{:name=>'Mercedes-Benz'},{:name=>'Opel'},{:name=>'Nissan'},{:name=>'VolksWagen'},{:name=>'Peugot'},{:name=>'Audi'},{:name=>'Dodge'},{:name=>'Chrysler'},{:name=>'Mitsubishi'},{:name=>'Chrysler'},{:name=>'Volvo'}]
+
+c_models=[]
+cars_models.each do |cm|
+c_models << CarModel.create!(cm)
+end
+
+car_owners=[{:name=>'Mohamed El-Banna',:tele_number=>'0100559967',:country=>'Egypt',:city=>'PortSaid'},{:name=>'Khaled El-Masry',:tele_number=>'010545454',:country=>'Egypt',:city=>'Giza'},{:name=>'Kareem Sameh',:tele_number=>'010658987',:country=>'Egypt',:city=>'Cairo'},
+{:name=>'Moemen',:tele_number=>'010533354',:country=>'Egypt',:city=>'Minya'},
+{:name=>'Islam El-Masry',:tele_number=>'010540000',:country=>'Egypt',:city=>'Alex'},
+
+{:name=>'Mostafa Mohamed',:tele_number=>'010544444',:country=>'Egypt',:city=>'Alex'}
+]
+owners=[]
+car_owners.each do |co|
+owners << Owner.create!(co)
+
+end
+cars=[{:year=>'2008-11-22',:cylinders=>'2000',:horse_power=>'250',:doors=>'2',:air_bags=>true,:abs=>true},{:year=>'2001-10-23',:cylinders=>'1600',:horse_power=>'150',:doors=>'3',:air_bags=>true,:abs=>false},{:year=>'2009-01-02',:cylinders=>'1600',:horse_power=>'350',:doors=>'5',:air_bags=>true,:abs=>true},
+{:year=>'2011-11-22',:cylinders=>'2700',:horse_power=>'450',:doors=>'4',:air_bags=>false,:abs=>true},
+{:year=>'2007-06-08',:cylinders=>'1600',:horse_power=>'60',:doors=>'4',:air_bags=>false,:abs=>true},
+{:year=>'2012-05-22',:cylinders=>'2000',:horse_power=>'250',:doors=>'3',:air_bags=>true,:abs=>true},
+{:year=>'1999-01-22',:cylinders=>'4200',:horse_power=>'500',:doors=>'4',:air_bags=>true,:abs=>true},
+{:year=>'2002-12-02',:cylinders=>'1600',:horse_power=>'130',:doors=>'3',:air_bags=>true,:abs=>true},
+{:year=>'2003-07-22',:cylinders=>'2200',:horse_power=>'140',:doors=>'4',:air_bags=>false,:abs=>true},
+{:year=>'1998-11-22',:cylinders=>'2200',:horse_power=>'350',:doors=>'5',:air_bags=>true,:abs=>false},
+{:year=>'2006-01-22',:cylinders=>'2000',:horse_power=>'250',:doors=>'2',:air_bags=>false,:abs=>false},
+{:year=>'2007-03-22',:cylinders=>'2000',:horse_power=>'550',:doors=>'4',:air_bags=>false,:abs=>true},
+{:year=>'2006-08-28',:cylinders=>'2200',:horse_power=>'230',:doors=>'2',:air_bags=>true,:abs=>false},
+{:year=>'2006-01-22',:cylinders=>'2000',:horse_power=>'250',:doors=>'2',:air_bags=>false,:abs=>true},
+{:year=>'2009-12-27',:cylinders=>'3000',:horse_power=>'450',:doors=>'5',:air_bags=>false,:abs=>true}]
+
+cars_arr1=[]
+cars_arr2=[]
+cars_arr3=[]
+cars_arr4=[]
+cars_arr5=[]
+cars_arr6=[]
+cars.each do |c|
+Car.create!(c)
+
+
+end
+cars_arr1<< Car.where(:cylinders='2000')
+cars_arr2<< Car.where(:cylinders='1600')
+cars_arr3<< Car.where(:cylinders='2200')
+cars_arr4<< Car.where(:cylinders='3000')
+cars_arr5<< Car.where(:cylinders='4200')
+cars_arr6<< Car.where(:cylinders='2700')
+owners.cars
+
+
+
