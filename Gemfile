@@ -32,6 +32,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'rspec'
   gem 'rspec-rails-matchers'
+  gem 'web-app-theme', '>= 0.6.2'
 end
 
 group :test do
