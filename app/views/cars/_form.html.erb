@@ -27,6 +27,10 @@
     <%= f.number_field :doors %>
   </div>
   <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
     <%= f.label :air_bags %><br />
     <%= f.check_box :air_bags %>
   </div>
@@ -34,6 +38,7 @@
     <%= f.label :abs %><br />
     <%= f.check_box :abs %>
   </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
