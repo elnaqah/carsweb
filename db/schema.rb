@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20121221145520) do
     t.integer  "doors"
     t.boolean  "air_bags"
     t.boolean  "abs"
+    t.integer  "price"
     t.integer  "car_model_id"
     t.integer  "owner_id"
     t.datetime "created_at",   :null => false

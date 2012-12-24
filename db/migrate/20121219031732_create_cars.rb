@@ -7,6 +7,7 @@ class CreateCars < ActiveRecord::Migration
       t.integer :doors
       t.boolean :air_bags
       t.boolean :abs
+      t.integer :price
       t.references 'car_model'
       t.references 'owner'
 
