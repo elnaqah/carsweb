@@ -1,23 +1,48 @@
-<h1>Listing car_models</h1>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", car_models_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_car_model_path %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> CarModels</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>
+          <th class="first">ID</th>
+                    <th>
+            <%= t("activerecord.attributes.car_model.name", :default => t("activerecord.labels.name", :default => "Name")) %>
+          </th>
+                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @car_models.each do |car_model| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= car_model.id %>
+          </td>
+                    <td>
+            <%= link_to car_model.name, car_model_path(car_model) %>
+          </td>
+                    <td>
+            <%= car_model.created_at %>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", car_model_path(car_model) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_car_model_path(car_model) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", car_model_path(car_model), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+        </tr>
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @car_models.each do |car_model| %>
-  <tr>
-    <td><%= car_model.name %></td>
-    <td><%= link_to 'Show', car_model %></td>
-    <td><%= link_to 'Edit', edit_car_model_path(car_model) %></td>
-    <td><%= link_to 'Destroy', car_model, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Car model', new_car_model_path %>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

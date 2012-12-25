@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+<<<<<<< HEAD
 cars_models=[{:name=>'Skoda'},{:name=>'Honda'},{:name=>'Toyota'},{:name=>'BMW'},{:name=>'KIA'},{:name=>'Mercedes-Benz'}]
 
 
@@ -60,3 +61,16 @@ CarModel.find(5).cars<< Car.where(:cylinders=> 1600)
 CarModel.find(6).cars<< Car.where(:cylinders=> 4200)
 
 
+=======
+
+models = [{:name => 'Volvo'},
+          {:name => 'Mercedes'},
+          {:name => 'Dodge'},
+          {:name => 'Mini-coper'},
+        
+     ]
+
+models.each do |md|
+  CarModel.create!(md)
+end
+>>>>>>> cf64e4b9710401680cf29dcd249ee527cc85abf6

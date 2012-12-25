@@ -1,30 +1,67 @@
-<p id="notice"><%= notice %></p>
 
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", cars_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_car_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", car_path %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <div class="inner">
+    
+      <p>
+          <b><%= t("activerecord.attributes.car.price", :default => t("activerecord.labels.price", :default => "Price")) %>:</b>
+          <%= @car.price %>
+        </p>
+         <p>
+          <b><%= t("activerecord.attributes.car.car_model_id", :default => t("activerecord.labels.car_model_id", :default => "Car model")) %>:</b>
+          <%= @car.car_model.name %>
+        </p>
+        <p>
+          <b><%= t("activerecord.attributes.car.year", :default => t("activerecord.labels.year", :default => "Year")) %>:</b>
+          <%= @car.year %>
+        </p>
 
-<p>
-  <b>Year:</b>
-  <%= @car.year %>
-</p>
-<p>
-  <b>Cylinders:</b>
-  <%= @car.cylinders %>
-</p>
-<p>
-  <b>Horse power:</b>
-  <%= @car.horse_power %>
-</p>
-<p>
-  <b>Doors:</b>
-  <%= @car.doors %>
-</p>
-<p>
-  <b>Air bags:</b>
-  <%= @car.air_bags %>
-</p>
-<p>
-  <b>Abs:</b>
-  <%= @car.abs %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.car.cylinders", :default => t("activerecord.labels.cylinders", :default => "Cylinders")) %>:</b>
+          <%= @car.cylinders %>
+        </p>
 
-<%= link_to 'Edit', edit_car_path(@car) %> |
-<%= link_to 'Back', cars_path %>
+        <p>
+          <b><%= t("activerecord.attributes.car.horse_power", :default => t("activerecord.labels.horse_power", :default => "Horse power")) %>:</b>
+          <%= @car.horse_power %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.car.doors", :default => t("activerecord.labels.doors", :default => "Doors")) %>:</b>
+          <%= @car.doors %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.car.air_bags", :default => t("activerecord.labels.air_bags", :default => "Air bags")) %>:</b>
+          <%= @car.air_bags %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.car.abs", :default => t("activerecord.labels.abs", :default => "Abs")) %>:</b>
+          <%= @car.abs %>
+        </p>
+
+        
+<% if false %>
+        <p>
+          <b><%= t("activerecord.attributes.car.owner_id", :default => t("activerecord.labels.owner_id", :default => "Owner")) %>:</b>
+          <%= @car.owner_id %>
+        </p>
+<%end%>
+      <div class="wat-cf">
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_car_path(@car), :class => "button" %>
+        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), car_path(@car), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
+
