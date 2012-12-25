@@ -25,6 +25,7 @@ group :development, :test do
   gem 'ZenTest'
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'cucumber-rails-training-wheels'
+  gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
@@ -36,6 +37,7 @@ end
 
 group :test do
   gem 'cucumber-rails'
+  gem 'cucumber-rails-training-wheels'
 end
 
 gem 'jquery-rails'
