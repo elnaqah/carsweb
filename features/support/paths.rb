@@ -15,7 +15,10 @@ module NavigationHelpers
 
     when /^the (carsweb )?home\s?page$/ then '/cars'
     when /^the cars page$/ then '/cars'
-
+ 
+    when /^Show of car (\d+)$/
+      car_path(Car.find($1))
+      
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
