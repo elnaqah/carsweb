@@ -47,7 +47,7 @@
             <%= car.price %>
           </td>
           <td>
-            <%= car.car_model.name %>
+            <%= car.car_model.name unless car.car_model.nil?%>
           </td>
          <td>
             <%= car.year %>
