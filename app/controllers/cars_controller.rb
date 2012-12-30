@@ -2,7 +2,7 @@ class CarsController < ApplicationController
   # GET /cars
   # GET /cars.json
   def index
-    if(params[:id] != "")
+    if(params[:id] != "" && params[:id])
       @model_id=params[:id]
       @cars = Car.where(:car_model_id=>params[:id])
     else
