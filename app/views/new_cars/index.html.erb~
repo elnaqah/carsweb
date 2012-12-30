@@ -1,8 +1,8 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "Used Cars")}", cars_path  %></li>
-       <li><%= link_to "#{t("web-app-theme.list", :default => "New Cars")}", new_cars_path  %></li>
+      <li class="first "><%= link_to "#{t("web-app-theme.list", :default => "Used Cars")}", cars_path  %></li>
+       <li class="active"><%= link_to "#{t("web-app-theme.list", :default => "New Cars")}", new_cars_path  %></li>
       <li><%= link_to "#{t("web-app-theme.new", :default => "Add a car")}", new_car_path %></li>
     </ul>
   </div>
@@ -39,7 +39,7 @@
                     <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
           <th class="last">&nbsp;</th>
         </tr>
-        <% @cars.each do |car| -%>
+        <% @new_cars.each do |car| -%>
         <tr class="<%= cycle("odd", "even") %>">
           <td>
             <%= car.id %>
@@ -70,12 +70,7 @@
           </td>
                     <td>
             <%= car.created_at %>
-          </td>
-          <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", car_path(car) %> |
-            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_car_path(car) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", car_path(car), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-          </td>
+          
         </tr>
         <% end -%>
       </table>
@@ -87,4 +82,3 @@
     </div>
   </div>
 </div>
-

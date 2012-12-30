@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121223133534) do
+ActiveRecord::Schema.define(:version => 20121227181349) do
 
   create_table "car_models", :force => true do |t|
     t.string   "name"
@@ -31,7 +31,19 @@ ActiveRecord::Schema.define(:version => 20121223133534) do
     t.integer  "owner_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
-    t.string   "price"
+  end
+
+  create_table "new_cars", :force => true do |t|
+    t.integer  "year"
+    t.integer  "cylinders"
+    t.integer  "horse_power"
+    t.integer  "doors"
+    t.boolean  "air_bags"
+    t.boolean  "abs"
+    t.integer  "price"
+    t.integer  "car_model_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "owners", :force => true do |t|

@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-<<<<<<< HEAD
+
 cars_models=[{:name=>'Skoda'},{:name=>'Honda'},{:name=>'Toyota'},{:name=>'BMW'},{:name=>'KIA'},{:name=>'Mercedes-Benz'}]
 
 
@@ -61,16 +61,34 @@ CarModel.find(5).cars<< Car.where(:cylinders=> 1600)
 CarModel.find(6).cars<< Car.where(:cylinders=> 4200)
 
 
-=======
 
-models = [{:name => 'Volvo'},
-          {:name => 'Mercedes'},
-          {:name => 'Dodge'},
-          {:name => 'Mini-coper'},
-        
-     ]
 
-models.each do |md|
-  CarModel.create!(md)
+
+
+new_cars=[
+{:year=>'2013',:cylinders=>'2000',:horse_power=>'250',:doors=>'2',:air_bags=>true,:abs=>true,:price=>150000},
+{:year=>'2013',:cylinders=>'2200',:horse_power=>'350',:doors=>'2',:air_bags=>true,:abs=>true,:price=>250000},
+{:year=>'2013',:cylinders=>'2000',:horse_power=>'260',:doors=>'4',:air_bags=>true,:abs=>true,:price=>350000},
+{:year=>'2013',:cylinders=>'2200',:horse_power=>'350',:doors=>'2',:air_bags=>true,:abs=>true,:price=>250000},
+{:year=>'2013',:cylinders=>'2200',:horse_power=>'340',:doors=>'3',:air_bags=>true,:abs=>true,:price=>160000},
+{:year=>'2013',:cylinders=>'1200',:horse_power=>'150',:doors=>'2',:air_bags=>true,:abs=>true,:price=>25000},
+{:year=>'2013',:cylinders=>'1600',:horse_power=>'120',:doors=>'4',:air_bags=>true,:abs=>true,:price=>85000},
+{:year=>'2013',:cylinders=>'2200',:horse_power=>'350',:doors=>'5',:air_bags=>true,:abs=>true,:price=>270000},
+{:year=>'2013',:cylinders=>'3200',:horse_power=>'650',:doors=>'2',:air_bags=>true,:abs=>true,:price=>450000},
+{:year=>'2013',:cylinders=>'1400',:horse_power=>'150',:doors=>'4',:air_bags=>true,:abs=>true,:price=>55000}]
+
+new_cars.each do|nc|
+NewCar.create!(nc)
 end
->>>>>>> cf64e4b9710401680cf29dcd249ee527cc85abf6
+
+CarModel.find(1).new_cars<< NewCar.where(:cylinders=> 2000)
+CarModel.find(2).new_cars<< NewCar.where(:cylinders=> 1200)
+CarModel.find(3).new_cars<< NewCar.where(:cylinders=> 3200)
+CarModel.find(4).new_cars<< NewCar.where(:cylinders=> 2200)
+CarModel.find(5).new_cars<< NewCar.where(:cylinders=> 1600)
+CarModel.find(6).new_cars<< NewCar.where(:cylinders=> 1400)
+
+
+
+
+

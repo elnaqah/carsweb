@@ -1,5 +1,6 @@
 class CarModel < ActiveRecord::Base
 has_many :cars
+has_many :new_cars
 has_many :owners, :through => :cars
 
 def self.get_models_names
