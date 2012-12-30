@@ -3,10 +3,17 @@
     <ul class="wat-cf">
       <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", cars_path  %></li>
       <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_car_path %></li>
+      <li class="select">Select Model<%= form_tag("/cars",:action => 'index', :method => "get") do %>
+        <%= select_tag :id, options_from_collection_for_select(@models, :id, :name,@model_id), :onchange => 'submit()',:prompt => "Car Model" %> 
+        <% end %>
+      </li>
     </ul>
   </div>
   <div class="content">
     <h2 class="title">Cars list</h2>
+
+      
+      
     <div class="inner">
       <table class="table">
         <tr>

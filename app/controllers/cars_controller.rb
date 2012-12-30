@@ -2,8 +2,13 @@ class CarsController < ApplicationController
   # GET /cars
   # GET /cars.json
   def index
-    @cars = Car.all
-    
+    if(params[:id] != "")
+      @model_id=params[:id]
+      @cars = Car.where(:car_model_id=>params[:id])
+    else
+    @cars=Car.all
+  end
+    @models=CarModel.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @cars }
