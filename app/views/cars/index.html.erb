@@ -17,7 +17,7 @@
     <div class="inner">
       <table class="table">
         <tr>
-          <th class="first">ID</th>
+          
           <th>
 			Price
           </th>
@@ -27,61 +27,21 @@
           <th>
             Year
           </th>
-          <th>
-			Cylinders
-          </th>
-          <th>
-			Horse power
-          </th>
-          <th>
-			Number of doors
-          </th>
-          <th>
-			Air bags
-          </th>
-          <th>
-			ABS
-          </th>
-                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+                   
           <th class="last">&nbsp;</th>
         </tr>
         <% @cars.each do |car| -%>
         <tr class="<%= cycle("odd", "even") %>">
           <td>
-            <%= car.id %>
+            <%= car.price+" LE" unless car.price.nil?%> 
           </td>
           <td>
-            <%= car.price %>
-          </td>
-          <td>
-            <%= car.car_model.name unless car.car_model.nil?%>
+            <%= link_to "#{t("web-app-theme.show", :default => car.car_model.name)}", car_path(car) %> 
           </td>
          <td>
             <%= car.year %>
           </td>
-          <td>
-            <%= car.cylinders %>
-          </td>
-          <td>
-            <%= car.horse_power %>
-          </td>
-          <td>
-            <%= car.doors %>
-          </td>
-          <td>
-            <%= car.air_bags %>
-          </td>
-          <td>
-            <%= car.abs %>
-          </td>
-                    <td>
-            <%= car.created_at %>
-          </td>
-          <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", car_path(car) %> |
-            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_car_path(car) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", car_path(car), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-          </td>
+          
         </tr>
         <% end -%>
       </table>
