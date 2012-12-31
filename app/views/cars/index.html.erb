@@ -4,7 +4,7 @@
       <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", cars_path  %></li>
       <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_car_path %></li>
       <li class="select">Select Model<%= form_tag("/cars",:action => 'index', :method => "get") do %>
-        <%= select_tag :id, options_from_collection_for_select(@models, :id, :name,@model_id), :onchange => 'submit()',:prompt => "Car Model" %> 
+        <%= select_tag :id, options_from_collection_for_select(@models, :id, :name,@model_id), :onchange => 'submit()',:prompt => "All Models",:id=>"car_model_id" %> 
         <% end %>
       </li>
     </ul>
@@ -41,6 +41,9 @@
           </td>
          <td>
             <%= car.year %>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", car_path(car) %>
           </td>
           
         </tr>

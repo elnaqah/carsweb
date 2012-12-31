@@ -27,3 +27,12 @@ When /I check the following : (.*)/ do |clist|
     check(c)
   end
 end
+
+When /^I reload the page$/ do
+  visit [ current_path, page.driver.request.env['QUERY_STRING'] ].reject(&:blank?).join('?')
+end
+
+Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
+  assert page.body.index(e1) < page.body.index(e2)
+  #flunk "Unimplemented"
+end
