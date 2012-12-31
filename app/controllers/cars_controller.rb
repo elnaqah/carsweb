@@ -4,10 +4,10 @@ class CarsController < ApplicationController
   def index
     if(params[:id] != "" && params[:id])
       @model_id=params[:id]
-      @cars = Car.where(:car_model_id=>params[:id])
+      @cars = Car.order(params[:sort]).where(:car_model_id=>params[:id])
     else
-    @cars=Car.all
-  end
+    @cars=Car.order(params[:sort]).all
+    end
     @models=CarModel.all
     respond_to do |format|
       format.html # index.html.erb

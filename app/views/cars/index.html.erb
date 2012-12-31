@@ -19,13 +19,14 @@
         <tr>
           
           <th>
-			Price
+            <%= link_to "Price", cars_path({:sort=>"price"}) %> 
+			
           </th>
           <th>
 			Model
           </th>
           <th>
-            Year
+            <%= link_to "Year", cars_path({:sort=>"year"}) %> 
           </th>
                    
           <th class="last">&nbsp;</th>
