@@ -2,47 +2,43 @@
   <div class="group">
     <%= f.label :price, t("activerecord.attributes.car.price", :default => "Price"), :class => :label %>
     <%= f.text_field :price, :class => 'number_field' %>
-    <span class="description">Ex: a simple text</span>
+    <span class="description">Ex: 20000</span>
   </div>
   <div class="group">
     <%= f.label :car_model_id, t("activerecord.attributes.car.car_model_id", :default => "Car model"), :class => :label %>
     <%= f.select :car_model_id, @models %>
-    <span class="description">Ex: a simple text</span>
   </div>
   <div class="group">
     <%= f.label :year, t("activerecord.attributes.car.year", :default => "Year"), :class => :label %>
     <%= f.date_select :year, :class => 'date_select' %>
-    <span class="description">Ex: a simple text</span>
   </div>
 
   <div class="group">
     <%= f.label :cylinders, t("activerecord.attributes.car.cylinders", :default => "Cylinders"), :class => :label %>
     <%= f.number_field :cylinders, :class => 'number_field' %>
-    <span class="description">Ex: a simple text</span>
+    <span class="description">Ex: 4</span>
   </div>
 
   <div class="group">
     <%= f.label :horse_power, t("activerecord.attributes.car.horse_power", :default => "Horse power"), :class => :label %>
     <%= f.number_field :horse_power, :class => 'number_field' %>
-    <span class="description">Ex: a simple text</span>
+    <span class="description">Ex: 123</span>
   </div>
 
   <div class="group">
     <%= f.label :doors, t("activerecord.attributes.car.doors", :default => "Doors"), :class => :label %>
     <%= f.number_field :doors, :class => 'number_field' %>
-    <span class="description">Ex: a simple text</span>
+    <span class="description">Ex: 4</span>
   </div>
 
   <div class="group">
     <%= f.label :air_bags, t("activerecord.attributes.car.air_bags", :default => "Air bags"), :class => :label %>
     <%= f.check_box :air_bags, :class => 'check_box' %>
-    <span class="description">Ex: a simple text</span>
   </div>
 
   <div class="group">
     <%= f.label :abs, t("activerecord.attributes.car.abs", :default => "Abs"), :class => :label %>
     <%= f.check_box :abs, :class => 'check_box' %>
-    <span class="description">Ex: a simple text</span>
   </div>
 
   

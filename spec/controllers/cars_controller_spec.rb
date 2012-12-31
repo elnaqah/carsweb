@@ -40,6 +40,24 @@ describe CarsController do
       get :index, {}, valid_session
       assigns(:cars).should eq([car])
     end
+
+    it "get models" do
+      cars_for_model=[mock('CarModel'),mock('CarModel')]
+      order_return=mock('oreder_collection')
+      order_return.stub(:where).and_return(cars_for_model)
+      Car.stub(:order).and_return(order_return)
+      get :index, {:id=>1}, valid_session
+      assigns(:model_id).should eq("1")
+      assigns(:cars).should eq(cars_for_model)
+    end
+
+    it "sort according to " do
+      order_return=mock('order')
+      order_return.stub(:all).and_return(order_return)
+      Car.stub(:order).and_return(order_return)
+      get :index, {:sort=>"price"}, valid_session
+      assigns(:cars).should eq(order_return)
+    end
   end
 
   describe "GET show" do
