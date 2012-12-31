@@ -34,7 +34,7 @@
         <% @cars.each do |car| -%>
         <tr class="<%= cycle("odd", "even") %>">
           <td>
-            <%= car.price+" LE" unless car.price.nil?%> 
+            <%= car.price.to_s+" LE" unless car.price.nil?%> 
           </td>
           <td>
             <%= link_to "#{t("web-app-theme.show", :default => car.car_model.name)}", car_path(car) %> 

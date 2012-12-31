@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(:version => 20121223133534) do
     t.integer  "owner_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
-    t.string   "price"
+    t.integer  "price"
   end
 
   create_table "owners", :force => true do |t|
