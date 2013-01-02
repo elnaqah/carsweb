@@ -2,9 +2,13 @@ class CarsController < ApplicationController
   # GET /cars
   # GET /cars.json
   def index
+    
     if(params[:id] != "" && params[:id])
       @model_id=params[:id]
       @cars = Car.order(params[:sort]).where(:car_model_id=>params[:id])
+    elsif(params[:filterPr] !="" && params[:filterPr])
+    @cars=Car.search(params[:filterPr])
+    
     else
     @cars=Car.order(params[:sort]).all
     end

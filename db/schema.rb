@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20121227181349) do
     t.integer  "owner_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+
   end
 
   create_table "new_cars", :force => true do |t|
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20121227181349) do
     t.integer  "car_model_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+
   end
 
   create_table "owners", :force => true do |t|

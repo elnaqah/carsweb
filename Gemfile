@@ -19,7 +19,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-
+  gem 'simplecov', :require => false, :group => :test
 group :development, :test do
   gem 'sqlite3'
   gem 'ZenTest'

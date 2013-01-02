@@ -16,7 +16,7 @@ end
 Then /^I should see only "(.*)" cars$/ do |brand|
 cars_not_selected=Car.where(:name_not=>brand)
 
-assert(steps "Then I should see\"brand\"")
-assert(steps "Then Ishould not see \"brand\"")
+assert(steps "Then I should see \"#{brand}\"")
+assert(steps "Then I should not see \"cars_not_selected\"")
 
 end

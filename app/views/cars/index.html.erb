@@ -5,31 +5,38 @@
       <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "Used cars")}", cars_path  %></li>
       <li><%= link_to "#{t("web-app-theme.list", :default => "New Cars")}", new1_cars_path  %></li>
       <li><%= link_to "#{t("web-app-theme.new", :default => "Add a car")}", new_car_path %></li>
-      <li class="select">Select Model<%= form_tag("/cars",:action => 'index', :method => "get") do %>
-        <%= select_tag :id, options_from_collection_for_select(@models, :id, :name,@model_id), :onchange => 'submit()',:prompt => "All" %> 
-        <% end %>
-      </li>
+      <li class="select"><p>Select Model: </P> </li><li> <p>
+      
+        <%= form_tag("/cars",:action => 'index', :method => "get") do %>
 
+        <%= select_tag :id, options_from_collection_for_select(@models, :id, :name,@model_id), :onchange => 'submit()',:prompt => "All Models",:id=>"car_model_id" %> 
+
+        <% end %></p>
+      </li>
+      <li class="select"><%= form_tag("/cars",:action=>'index',:method=>"get") do %>
+<p>Enter Price: 
+<%= text_field_tag :filterPr,params[:filterPr]%>
+<%= submit_tag "Search",:name =>nil%>
+</p>
+<% end %></li>
     </ul>
   </div>
   <div class="content">
     <h2 class="title">Cars list</h2>
-
-      
       
     <div class="inner">
       <table class="table">
         <tr>
           
           <th>
-            <%= link_to "Price", cars_path({:sort=>"price"}) %> 
+            <%= link_to "Price", cars_path({:sort=>"price",:id=>@model_id}) %> 
 			
           </th>
           <th>
 			Model
           </th>
           <th>
-            <%= link_to "Year", cars_path({:sort=>"year"}) %> 
+            <%= link_to "Year", cars_path({:sort=>"year",:id=>@model_id}) %> 
           </th>
                    
           <th class="last">&nbsp;</th>
@@ -44,6 +51,9 @@
           </td>
          <td>
             <%= car.year %>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", car_path(car) %>
           </td>
           
         </tr>
