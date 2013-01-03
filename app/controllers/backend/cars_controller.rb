@@ -2,7 +2,7 @@ class Backend::CarsController < ApplicationController
   # GET /backend/cars
   # GET /backend/cars.json
   def index
-    @backend_cars = Backend::Car.all
+    @backend_cars = Car.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,7 @@ class Backend::CarsController < ApplicationController
   # GET /backend/cars/1
   # GET /backend/cars/1.json
   def show
-    @backend_car = Backend::Car.find(params[:id])
+    @backend_car = Car.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +24,7 @@ class Backend::CarsController < ApplicationController
   # GET /backend/cars/new
   # GET /backend/cars/new.json
   def new
-    @backend_car = Backend::Car.new
+    @backend_car = Car.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +34,13 @@ class Backend::CarsController < ApplicationController
 
   # GET /backend/cars/1/edit
   def edit
-    @backend_car = Backend::Car.find(params[:id])
+    @backend_car = Car.find(params[:id])
   end
 
   # POST /backend/cars
   # POST /backend/cars.json
   def create
-    @backend_car = Backend::Car.new(params[:backend_car])
+    @backend_car = Car.new(params[:backend_car])
 
     respond_to do |format|
       if @backend_car.save
@@ -56,7 +56,7 @@ class Backend::CarsController < ApplicationController
   # PUT /backend/cars/1
   # PUT /backend/cars/1.json
   def update
-    @backend_car = Backend::Car.find(params[:id])
+    @backend_car = Car.find(params[:id])
 
     respond_to do |format|
       if @backend_car.update_attributes(params[:backend_car])
@@ -72,7 +72,7 @@ class Backend::CarsController < ApplicationController
   # DELETE /backend/cars/1
   # DELETE /backend/cars/1.json
   def destroy
-    @backend_car = Backend::Car.find(params[:id])
+    @backend_car = Car.find(params[:id])
     @backend_car.destroy
 
     respond_to do |format|

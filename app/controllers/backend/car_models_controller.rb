@@ -2,7 +2,7 @@ class Backend::CarModelsController < ApplicationController
   # GET /backend/car_models
   # GET /backend/car_models.json
   def index
-    @backend_car_models = Backend::CarModel.all
+    @backend_car_models = CarModel.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,7 @@ class Backend::CarModelsController < ApplicationController
   # GET /backend/car_models/1
   # GET /backend/car_models/1.json
   def show
-    @backend_car_model = Backend::CarModel.find(params[:id])
+    @backend_car_model = CarModel.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +24,7 @@ class Backend::CarModelsController < ApplicationController
   # GET /backend/car_models/new
   # GET /backend/car_models/new.json
   def new
-    @backend_car_model = Backend::CarModel.new
+    @backend_car_model = CarModel.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +34,13 @@ class Backend::CarModelsController < ApplicationController
 
   # GET /backend/car_models/1/edit
   def edit
-    @backend_car_model = Backend::CarModel.find(params[:id])
+    @backend_car_model = CarModel.find(params[:id])
   end
 
   # POST /backend/car_models
   # POST /backend/car_models.json
   def create
-    @backend_car_model = Backend::CarModel.new(params[:backend_car_model])
+    @backend_car_model = CarModel.new(params[:backend_car_model])
 
     respond_to do |format|
       if @backend_car_model.save
@@ -56,7 +56,7 @@ class Backend::CarModelsController < ApplicationController
   # PUT /backend/car_models/1
   # PUT /backend/car_models/1.json
   def update
-    @backend_car_model = Backend::CarModel.find(params[:id])
+    @backend_car_model = CarModel.find(params[:id])
 
     respond_to do |format|
       if @backend_car_model.update_attributes(params[:backend_car_model])
@@ -72,7 +72,7 @@ class Backend::CarModelsController < ApplicationController
   # DELETE /backend/car_models/1
   # DELETE /backend/car_models/1.json
   def destroy
-    @backend_car_model = Backend::CarModel.find(params[:id])
+    @backend_car_model = CarModel.find(params[:id])
     @backend_car_model.destroy
 
     respond_to do |format|

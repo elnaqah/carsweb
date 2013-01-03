@@ -2,7 +2,7 @@ class Backend::OwnersController < ApplicationController
   # GET /backend/owners
   # GET /backend/owners.json
   def index
-    @backend_owners = Backend::Owner.all
+    @backend_owners = Owner.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,7 @@ class Backend::OwnersController < ApplicationController
   # GET /backend/owners/1
   # GET /backend/owners/1.json
   def show
-    @backend_owner = Backend::Owner.find(params[:id])
+    @backend_owner = Owner.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +24,7 @@ class Backend::OwnersController < ApplicationController
   # GET /backend/owners/new
   # GET /backend/owners/new.json
   def new
-    @backend_owner = Backend::Owner.new
+    @backend_owner = Owner.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +34,13 @@ class Backend::OwnersController < ApplicationController
 
   # GET /backend/owners/1/edit
   def edit
-    @backend_owner = Backend::Owner.find(params[:id])
+    @backend_owner = Owner.find(params[:id])
   end
 
   # POST /backend/owners
   # POST /backend/owners.json
   def create
-    @backend_owner = Backend::Owner.new(params[:backend_owner])
+    @backend_owner = Owner.new(params[:backend_owner])
 
     respond_to do |format|
       if @backend_owner.save
@@ -56,7 +56,7 @@ class Backend::OwnersController < ApplicationController
   # PUT /backend/owners/1
   # PUT /backend/owners/1.json
   def update
-    @backend_owner = Backend::Owner.find(params[:id])
+    @backend_owner = Owner.find(params[:id])
 
     respond_to do |format|
       if @backend_owner.update_attributes(params[:backend_owner])
@@ -72,7 +72,7 @@ class Backend::OwnersController < ApplicationController
   # DELETE /backend/owners/1
   # DELETE /backend/owners/1.json
   def destroy
-    @backend_owner = Backend::Owner.find(params[:id])
+    @backend_owner = Owner.find(params[:id])
     @backend_owner.destroy
 
     respond_to do |format|
