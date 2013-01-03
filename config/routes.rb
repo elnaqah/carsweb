@@ -5,6 +5,10 @@ Carsweb::Application.routes.draw do
 
   resources :cars
 
+  #backend 
+ scope :module => "backend" do
+  resources :cars , :path=>"/backend/cars"
+ end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
