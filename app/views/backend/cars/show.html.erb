@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Year:</b>
+  <%= @backend_car.year %>
+</p>
+
+<p>
+  <b>Cylinders:</b>
+  <%= @backend_car.cylinders %>
+</p>
+
+<p>
+  <b>Horse power:</b>
+  <%= @backend_car.horse_power %>
+</p>
+
+<p>
+  <b>Doors:</b>
+  <%= @backend_car.doors %>
+</p>
+
+<p>
+  <b>Air bags:</b>
+  <%= @backend_car.air_bags %>
+</p>
+
+<p>
+  <b>Abs:</b>
+  <%= @backend_car.abs %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @backend_car.price %>
+</p>
+
+
+<%= link_to 'Edit', edit_backend_car_path(@backend_car) %> |
+<%= link_to 'Back', backend_cars_path %>
