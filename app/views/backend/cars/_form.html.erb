@@ -16,6 +16,10 @@
     <%= f.date_select :year %>
   </div>
   <div class="field">
+    <%= f.label :car_model_id, t("activerecord.attributes.car.car_model_id", :default => "Car model"), :class => :label %>
+    <%= f.select :car_model_id, options_from_collection_for_select(@models, :id, :name) %>
+  </div>
+  <div class="field">
     <%= f.label :cylinders %><br />
     <%= f.number_field :cylinders %>
   </div>

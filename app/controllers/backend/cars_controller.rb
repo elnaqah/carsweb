@@ -24,8 +24,9 @@ class Backend::CarsController < ApplicationController
   # GET /backend/cars/new
   # GET /backend/cars/new.json
   def new
+    logger.debug(">>>>>backend new")
     @backend_car = Car.new
-
+    @models=CarModel.all
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @backend_car }
@@ -41,11 +42,12 @@ class Backend::CarsController < ApplicationController
   # POST /backend/cars.json
   def create
     @backend_car = Car.new(params[:backend_car])
-
+    logger.debug(">>>>>create")
     respond_to do |format|
       if @backend_car.save
-        format.html { redirect_to @backend_car, notice: 'Car was successfully created.' }
-        format.json { render json: @backend_car, status: :created, location: @backend_car }
+        format.html { redirect_to backend_car_path(@backend_car), notice: 'Car was successfully created.' }
+        logger.debug(">>>>>backend format html create")
+        format.json { render json: @backend_car, status: :created, location: backend_car_path(@backend_car) }
       else
         format.html { render action: "new" }
         format.json { render json: @backend_car.errors, status: :unprocessable_entity }
