@@ -11,9 +11,9 @@
 <% @backend_car_models.each do |backend_car_model| %>
   <tr>
     <td><%= backend_car_model.name %></td>
-    <td><%= link_to 'Show', backend_car_model %></td>
+    <td><%= link_to 'Show', backend_car_model_path(backend_car_model) %></td>
     <td><%= link_to 'Edit', edit_backend_car_model_path(backend_car_model) %></td>
-    <td><%= link_to 'Destroy', backend_car_model, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', backend_car_model_path(backend_car_model), confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

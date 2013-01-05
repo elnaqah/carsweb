@@ -3,6 +3,7 @@
 <table>
   <tr>
     <th>Year</th>
+    <th>Model</th>
     <th>Cylinders</th>
     <th>Horse power</th>
     <th>Doors</th>
@@ -17,15 +18,16 @@
 <% @backend_cars.each do |backend_car| %>
   <tr>
     <td><%= backend_car.year %></td>
+    <td><%= backend_car.car_model.name %></td>
     <td><%= backend_car.cylinders %></td>
     <td><%= backend_car.horse_power %></td>
     <td><%= backend_car.doors %></td>
     <td><%= backend_car.air_bags %></td>
     <td><%= backend_car.abs %></td>
     <td><%= backend_car.price %></td>
-    <td><%= link_to 'Show', backend_car %></td>
+    <td><%= link_to 'Show', backend_car_path(backend_car) %></td>
     <td><%= link_to 'Edit', edit_backend_car_path(backend_car) %></td>
-    <td><%= link_to 'Destroy', backend_car, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', backend_car_path(backend_car), confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
