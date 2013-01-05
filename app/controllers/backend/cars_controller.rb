@@ -35,6 +35,7 @@ class Backend::CarsController < ApplicationController
 
   # GET /backend/cars/1/edit
   def edit
+    @models=CarModel.all
     @backend_car = Car.find(params[:id])
   end
 
