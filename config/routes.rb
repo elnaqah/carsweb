@@ -1,4 +1,8 @@
 Carsweb::Application.routes.draw do
+  get "authentications/create"
+
+  devise_for :owners
+
   resources :owners
 
   resources :car_models
@@ -55,6 +59,7 @@ Carsweb::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
    root :to => 'cars#index'
+   match '/auth/:provider/callback' => 'authentications#create'
 
   # See how all your routes lay out with "rake routes"
 
