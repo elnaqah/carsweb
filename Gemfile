@@ -40,6 +40,7 @@ group :test do
 end
 
 gem 'jquery-rails'
+gem 'omniauth-facebook'
 
 group :production do
   gem 'pg'
