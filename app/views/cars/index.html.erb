@@ -10,14 +10,24 @@
     </ul>
   </div>
   <div class="content">
-    <h2 class="title">Cars list</h2>
-	<div id="user_nav">
-  		<% if current_user %>
-    		Signed in as <strong><%= current_user.name %></strong>!
-    		<%= link_to "Sign out", signout_path, id: "sign_out" %>
-  		<% else %>
-    		<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-  		<% end %>
+  	<table>
+  		<tr>
+  			<td>
+		    	<h2 class="title">Cars list</h2>
+		    </td>
+		    <td>
+				<div id="user_nav">
+			  		<% if current_user %>
+			    		<p>Signed in as <strong><%= current_user.name %></strong> 
+			    			<img alt="Search" border="0" class="dock-item" 
+								src="<%= current_user.image%>" /></p>
+			    		<p><%= link_to "Sign out", signout_path, id: "sign_out" %></p>
+			  		<% else %>
+			    		<p><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></p>
+			  		<% end %>
+		  	</td>
+	  		</tr>
+  	</table>
 	</div>
       
       
