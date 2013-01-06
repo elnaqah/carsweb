@@ -3,17 +3,21 @@
     <ul class="wat-cf">
       <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", cars_path  %></li>
       <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_car_path %></li>
-      <li class="select">Select Model<%= form_tag("/cars",:action => 'index', :method => "get") do %>
-        <%= select_tag :id, options_from_collection_for_select(@models, :id, :name,@model_id), :onchange => 'submit()',:prompt => "All Models",:id=>"car_model_id" %> 
-        <% end %>
-      </li>
+      
     </ul>
   </div>
   <div class="content">
   	<table width="1265px">
+  		
   		<tr>
   			<td>
 		    	<h2 class="title">Cars list</h2>
+		    	<div class="select"> 
+	  				<% if false %><h5 style="color: black">Select Model</h5><% end %>
+	  				<%= form_tag("/cars",:action => 'index', :method => "get") do %>
+	        		<%= select_tag :id, options_from_collection_for_select(@models, :id, :name,@model_id), :onchange => 'submit()',:prompt => "All Models",:id=>"car_model_id" %> 
+	        		<% end %>
+  				</div>
 		    </td>
 		    <td align="right">
 				<div id="user_nav">
@@ -27,6 +31,9 @@
 			  		<% end %>
 		  	</td>
 	  		</tr>
+	  		<tr>
+  			
+  			</tr>
   	</table>
 	</div>
       
