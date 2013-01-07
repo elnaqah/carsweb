@@ -3,7 +3,9 @@
   	
 			    <ul class="wat-cf">
 			      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", cars_path  %></li>
+			      <% if session[:user_id]%>
 			      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_car_path %></li>
+			      <% end %>
 			      
 			    </ul>
 		   </div>
