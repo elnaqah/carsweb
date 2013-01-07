@@ -6,10 +6,13 @@
 			      <% if session[:user_id]%>
 			      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_car_path %></li>
 			      <% end %>
+			      <% if session[:admin]%>
+			      <li><%= link_to "#{t("web-app-theme.new", :default => "Administration")}" %></li>
+			      <% end %>
 			      
 			    </ul>
 		   </div>
-  
+  <h4><%= flash[:notice] %></h4>
   <div class="content">
   	<table width="1265px">
   		

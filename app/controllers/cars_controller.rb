@@ -51,7 +51,7 @@ class CarsController < ApplicationController
     if params[:user]
       if params[:user][:name]=='admin' && params[:user][:password]=='admin'
         session[:admin]=true
-        flash[:notice] = "successfully logged as administrator"
+        flash[:notice] = "successfully logged in as administrator"
         redirect_to cars_path
       else
         flash[:notice] = "Wrong administrator username and password"
