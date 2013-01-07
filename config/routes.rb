@@ -1,7 +1,7 @@
 Carsweb::Application.routes.draw do
-  resources :owners
+  #resources :owners
 
-  resources :car_models
+  #resources :car_models
 
   resources :cars
 

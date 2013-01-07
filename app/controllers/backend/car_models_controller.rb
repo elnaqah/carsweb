@@ -44,7 +44,7 @@ class Backend::CarModelsController < ApplicationController
 
     respond_to do |format|
       if @backend_car_model.save
-        format.html { redirect_to @backend_car_model, notice: 'Car model was successfully created.' }
+        format.html { redirect_to backend_car_model_path(@backend_car_model), notice: 'Car model was successfully created.' }
         format.json { render json: @backend_car_model, status: :created, location: @backend_car_model }
       else
         format.html { render action: "new" }
