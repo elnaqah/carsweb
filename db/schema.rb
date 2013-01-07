@@ -13,15 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130107170835) do
 
-  create_table "authentications", :force => true do |t|
-    t.integer  "owner_id"
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "token"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "car_models", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -36,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20130107170835) do
     t.boolean  "air_bags"
     t.boolean  "abs"
     t.integer  "car_model_id"
-    t.integer  "owner_id"
+    t.integer  "user_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "price"
@@ -47,22 +38,9 @@ ActiveRecord::Schema.define(:version => 20130107170835) do
     t.string   "tele_number"
     t.string   "country"
     t.string   "city"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
-
-  add_index "owners", ["email"], :name => "index_owners_on_email", :unique => true
-  add_index "owners", ["reset_password_token"], :name => "index_owners_on_reset_password_token", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "provider"

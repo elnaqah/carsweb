@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :cars
+  has_many :car_models, :through => :cars
   
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|

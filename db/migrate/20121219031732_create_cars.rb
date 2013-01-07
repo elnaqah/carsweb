@@ -8,7 +8,7 @@ class CreateCars < ActiveRecord::Migration
       t.boolean :air_bags
       t.boolean :abs
       t.references 'car_model'
-      t.references 'owner'
+      t.references 'user'
 
       t.timestamps
     end
