@@ -3,7 +3,9 @@
   <div class="secondary-navigation">
     <ul class="wat-cf">
       <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", cars_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_car_path %></li>
+      <% if session[:user_id]%>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Add used car")}", new_car_path %></li>
+      <% end %>
       <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", car_path %></li>
     </ul>
   </div>
@@ -58,10 +60,12 @@
           <%= @car.owner_id %>
         </p>
 <%end%>
+	<% if session[:user_id] && session[:user_id] == @car.user_id%>
       <div class="wat-cf">
         <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_car_path(@car), :class => "button" %>
         <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), car_path(@car), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
