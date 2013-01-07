@@ -73,7 +73,9 @@
           <th>
             <%= link_to "Year", cars_path({:sort=>"year",:id=>@model_id}) %> 
           </th>
-                   
+          <th>
+          	Owner name    	
+          </th>     
           <th class="last">&nbsp;</th>
         </tr>
         <% @cars.each do |car| -%>
@@ -86,6 +88,9 @@
           </td>
          <td>
             <%= car.year %>
+          </td>
+          <td>
+          	<%= car.user.name unless car.user.nil?%>
           </td>
           <td class="last">
             <%= link_to "#{t("web-app-theme.show", :default => "Show")}", car_path(car) %>

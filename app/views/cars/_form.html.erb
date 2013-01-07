@@ -40,7 +40,8 @@
     <%= f.label :abs, t("activerecord.attributes.car.abs", :default => "Abs"), :class => :label %>
     <%= f.check_box :abs, :class => 'check_box' %>
   </div>
-
+  
+	<%= f.hidden_field :user_id, :value => session[:user_id] %>
   
  <% if false %>
   <div class="group">
