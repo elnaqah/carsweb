@@ -8,7 +8,11 @@ Carsweb::Application.routes.draw do
   resources :car_models
 
   resources :cars
+  
+  resources :users
 
+  #match 'users/:id', :to=> 'users#show'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -63,6 +67,7 @@ Carsweb::Application.routes.draw do
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
+  match 'admin_signout', :to=> "cars#destroy_admin"
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

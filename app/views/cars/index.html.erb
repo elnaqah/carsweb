@@ -1,11 +1,13 @@
 <div class="block">
   <div class="secondary-navigation">
-    <ul class="wat-cf">
-      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", cars_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_car_path %></li>
-      
-    </ul>
-  </div>
+  	
+			    <ul class="wat-cf">
+			      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", cars_path  %></li>
+			      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_car_path %></li>
+			      
+			    </ul>
+		   </div>
+  
   <div class="content">
   	<table width="1265px">
   		
@@ -20,18 +22,32 @@
   				</div>
 		    </td>
 		    <td align="right">
+		    	<% if !current_user %>
+			    	<% if session[:admin] %>
+			    		<p>Signed in as <strong>Administrator</strong>
+			    		<p><%= link_to "Sign out", admin_signout_path, id: "admin_sign_out" %></p> 
+			    	<% else %>
+			    	Sign In as administrator:
+			    	<%= form_for :user, :as => :user, :html => {:method => :post} do |f| -%>
+				        <%= render :partial => "login", :locals => {:f => f} %>
+				      <% end -%>
+				      
+			    	<% end %>
+		    	<% end %>
 				<div id="user_nav">
-			  		<% if current_user %>
-			    		<p>Signed in as <strong><%= current_user.name %></strong> 
-			    			<img alt="Search" border="0" class="dock-item" 
-								src="<%= current_user.image%>" /></p>
-			    		<p><%= link_to "Sign out", signout_path, id: "sign_out" %></p>
-			  		<% else %>
-			    		<p>
-			    			<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-			    			<%= link_to image_tag('FaceBook-icon.png',:size => "16x16"),"/auth/facebook",id: "sign_in_logo"%>
-			    			
-			    		</p>
+					<% if !session[:admin] %>
+				  		<% if current_user %>
+				    		<p>Signed in as <strong><%= current_user.name %></strong> 
+				    			<img alt="Search" border="0" class="dock-item" 
+									src="<%= current_user.image%>" /></p>
+				    		<p><%= link_to "Sign out", signout_path, id: "sign_out" %></p>
+				  		<% else %>
+				    		<p>
+				    			<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+				    			<%= link_to image_tag('FaceBook-icon.png',:size => "16x16"),"/auth/facebook",id: "sign_in_logo"%>
+				    			
+				    		</p>
+				  		<% end %>
 			  		<% end %>
 		  	</td>
 	  		</tr>
@@ -39,6 +55,7 @@
   			
   			</tr>
   	</table>
+  	
 	</div>
       
       

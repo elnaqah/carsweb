@@ -9,6 +9,8 @@ class CarsController < ApplicationController
     @cars=Car.order(params[:sort]).all
     end
     @models=CarModel.all
+    
+    #logger.debug params[:user]
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @cars }
@@ -46,19 +48,36 @@ class CarsController < ApplicationController
   # POST /cars
   # POST /cars.json
   def create
-    @car = Car.new(params[:car])
-    #logger.debug(@car.inspect)
-    respond_to do |format|
-      if @car.save
-        format.html { redirect_to @car, notice: 'Car was successfully created.' }
-        format.json { render json: @car, status: :created, location: @car }
+    if params[:user]
+      if params[:user][:name]=='admin' && params[:user][:password]=='admin'
+        session[:admin]=true
+        flash[:notice] = "successfully logged as administrator"
+        redirect_to cars_path
       else
-        format.html { render action: "new" }
-        format.json { render json: @car.errors, status: :unprocessable_entity }
+        flash[:notice] = "Wrong administrator username and password"
+        redirect_to cars_path
       end
+      
+    else
+       @car = Car.new(params[:car])
+      #logger.debug(@car.inspect)
+      respond_to do |format|
+        if @car.save
+          format.html { redirect_to @car, notice: 'Car was successfully created.' }
+          format.json { render json: @car, status: :created, location: @car }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @car.errors, status: :unprocessable_entity }
+        end
+      end 
     end
+    
   end
-
+  
+  def destroy_admin
+    session[:admin]=nil
+    redirect_to cars_path
+  end
   # PUT /cars/1
   # PUT /cars/1.json
   def update
@@ -86,4 +105,5 @@ class CarsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
 end

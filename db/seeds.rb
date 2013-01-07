@@ -38,4 +38,8 @@ cars.each do |c|
 Car.create!(c)
 end
 
+admin_user={:name=>'admin', :password=>'admin'}
+User.create!(admin_user)
+
+
 
