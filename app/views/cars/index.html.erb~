@@ -1,68 +1,106 @@
 <div class="block">
   <div class="secondary-navigation">
-    <ul class="wat-cf">
-      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", cars_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_car_path %></li>
-    </ul>
-  </div>
+  	
+			    <ul class="wat-cf">
+			      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", cars_path  %></li>
+			      <% if session[:user_id]%>
+			      <li><%= link_to "#{t("web-app-theme.new", :default => "Add used car")}", new_car_path %></li>
+			      <% end %>
+			      <% if session[:admin]%>
+			      <li><%= link_to "#{t("web-app-theme.new", :default => "Administration")}", backend_cars_path %></li>
+			      <% end %>
+			      
+			    </ul>
+		   </div>
+  <h4><%= flash[:notice] %></h4>
   <div class="content">
-    <h2 class="title">> Cars list</h2>
+  	<table width="1265px">
+  		
+  		<tr>
+  			<td>
+		    	<h2 class="title">Cars list</h2>
+		    	<div class="select"> 
+	  				<% if false %><h5 style="color: black">Select Model</h5><% end %>
+	  				<%= form_tag("/cars",:action => 'index', :method => "get") do %>
+	        		<%= select_tag :id, options_from_collection_for_select(@models, :id, :name,@model_id), :onchange => 'submit()',:prompt => "All Models",:id=>"car_model_id" %> 
+	        		<% end %>
+  				</div>
+		    </td>
+		    <td align="right">
+		    	<% if !current_user %>
+			    	<% if session[:admin] %>
+			    		<p>Signed in as <strong>Administrator</strong>
+			    		<p><%= link_to "Sign out", admin_signout_path, id: "admin_sign_out" %></p> 
+			    	<% else %>
+			    	Sign In as administrator:
+			    	<%= form_for :user, :as => :user, :html => {:method => :post} do |f| -%>
+				        <%= render :partial => "login", :locals => {:f => f} %>
+				      <% end -%>
+				      
+			    	<% end %>
+		    	<% end %>
+				<div id="user_nav">
+					<% if !session[:admin] %>
+				  		<% if current_user %>
+				    		<p>Signed in as <strong><%= current_user.name %></strong> 
+				    			<img alt="Search" border="0" class="dock-item" 
+									src="<%= current_user.image%>" /></p>
+				    		<p><%= link_to "Sign out", signout_path, id: "sign_out" %></p>
+				  		<% else %>
+				    		<p>
+				    			<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+				    			<%= link_to image_tag('FaceBook-icon.png',:size => "16x16"),"/auth/facebook",id: "sign_in_logo"%>
+				    			
+				    		</p>
+				  		<% end %>
+			  		<% end %>
+		  	</td>
+	  		</tr>
+	  		<tr>
+  			
+  			</tr>
+  	</table>
+  	
+	</div>
+      
+      
     <div class="inner">
       <table class="table">
         <tr>
-          <th class="first">ID</th>
-                    <th>
-            <%= t("activerecord.attributes.car.year", :default => t("activerecord.labels.year", :default => "Year")) %>
+          
+          <th>
+            <%= link_to "Price", cars_path({:sort=>"price",:id=>@model_id}) %> 
+			
           </th>
           <th>
-			Cylinders
+			Model
           </th>
           <th>
-			Horse power
+            <%= link_to "Year", cars_path({:sort=>"year",:id=>@model_id}) %> 
           </th>
           <th>
-			Number of doors
-          </th>
-          <th>
-			Air bags
-          </th>
-          <th>
-			ABS
-          </th>
-                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+          	Owner name    	
+          </th>     
           <th class="last">&nbsp;</th>
         </tr>
         <% @cars.each do |car| -%>
         <tr class="<%= cycle("odd", "even") %>">
           <td>
-            <%= car.id %>
+            <%= car.price.to_s+" LE" unless car.price.nil?%> 
           </td>
-                    <td>
+          <td>
+            <%= link_to "#{t("web-app-theme.show", :default => car.car_model.name)}", car_path(car) %> 
+          </td>
+         <td>
             <%= car.year %>
           </td>
           <td>
-            <%= car.cylinders %>
-          </td>
-          <td>
-            <%= car.horse_power %>
-          </td>
-          <td>
-            <%= car.doors %>
-          </td>
-          <td>
-            <%= car.air_bags %>
-          </td>
-          <td>
-            <%= car.abs %>
-          </td>
-                    <td>
-            <%= car.created_at %>
+          	<%= car.user.name unless car.user.nil?%>
           </td>
           <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", car_path(car) %> |
-            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_car_path(car) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", car_path(car), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", car_path(car) %>
           </td>
+          
         </tr>
         <% end -%>
       </table>
@@ -75,4 +113,3 @@
   </div>
 </div>
 
-<% content_for :sidebar, render(:partial => 'sidebar') -%>

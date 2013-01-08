@@ -5,6 +5,8 @@ class CarsController < ApplicationController
     if(params[:id] != "" && params[:id])
       @model_id=params[:id]
       @cars = Car.order(params[:sort]).where(:car_model_id=>params[:id])
+    elsif(params[:PriceFrom] !="" && params[:PriceFrom] && params[:PriceTo] !="" && params[:PriceTo])
+      @cars=Car.search(params[:PriceFrom],params[:PriceTo])
     else
     @cars=Car.order(params[:sort]).all
     end
