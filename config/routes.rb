@@ -1,18 +1,18 @@
 Carsweb::Application.routes.draw do
-  #get "sessions/create"
+  #resources :owners
 
-  #get "sessions/destroy"
-
-  resources :owners
-
-  resources :car_models
+  #resources :car_models
 
   resources :cars
   
   resources :users
 
-  #match 'users/:id', :to=> 'users#show'
-  
+  #backend 
+  %w{cars car_models owners}.each do |class_name|
+ scope :module => "backend" do
+  resources class_name.to_sym , :path=>"/backend/#{class_name}" , :as => "backend_#{class_name}".to_sym
+ end
+end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

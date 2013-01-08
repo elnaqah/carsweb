@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @backend_owner.name %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%= @backend_owner.country %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @backend_owner.city %>
+</p>
+
+
+<%= link_to 'Edit', edit_backend_owner_path(@backend_owner) %> |
+<%= link_to 'Back', backend_owners_path %>

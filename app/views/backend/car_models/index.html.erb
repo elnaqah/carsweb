@@ -1,0 +1,30 @@
+<div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li><%= link_to "#{t("web-app-theme.list", :default => "Cars")}", backend_cars_path  %></li>
+      <li class="first active"><%= link_to "#{t("web-app-theme.new", :default => "Cars Model")}", backend_car_models_path %></li>
+    </ul>
+  </div>
+  
+<h1>Listing car models</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @backend_car_models.each do |backend_car_model| %>
+  <tr>
+    <td><%= backend_car_model.name %></td>
+    <td><%= link_to 'Show', backend_car_model_path(backend_car_model) %></td>
+    <td><%= link_to 'Edit', edit_backend_car_model_path(backend_car_model) %></td>
+    <td><%= link_to 'Destroy', backend_car_model_path(backend_car_model), confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Car model', new_backend_car_model_path %>
