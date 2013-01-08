@@ -1,4 +1,11 @@
-<h1>Listing backend_car_models</h1>
+<div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li><%= link_to "#{t("web-app-theme.list", :default => "Cars")}", backend_cars_path  %></li>
+      <li class="first active"><%= link_to "#{t("web-app-theme.new", :default => "Cars Model")}", backend_car_models_path %></li>
+    </ul>
+  </div>
+  
+<h1>Listing car models</h1>
 
 <table>
   <tr>

@@ -3,7 +3,6 @@ class Backend::CarsController < ApplicationController
   # GET /backend/cars.json
   def index
     @backend_cars = Car.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @backend_cars }
@@ -24,7 +23,7 @@ class Backend::CarsController < ApplicationController
   # GET /backend/cars/new
   # GET /backend/cars/new.json
   def new
-    logger.debug(">>>>>backend new")
+    #logger.debug(">>>>>backend new")
     @backend_car = Car.new
     @models=CarModel.all
     respond_to do |format|
@@ -43,7 +42,7 @@ class Backend::CarsController < ApplicationController
   # POST /backend/cars.json
   def create
     @backend_car = Car.new(params[:backend_car])
-    logger.debug(">>>>>create")
+    #logger.debug(">>>>>create")
     respond_to do |format|
       if @backend_car.save
         format.html { redirect_to backend_car_path(@backend_car), notice: 'Car was successfully created.' }

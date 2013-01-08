@@ -3,7 +3,6 @@ class Backend::CarModelsController < ApplicationController
   # GET /backend/car_models.json
   def index
     @backend_car_models = CarModel.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @backend_car_models }
