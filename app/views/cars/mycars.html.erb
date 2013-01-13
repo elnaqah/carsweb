@@ -1,0 +1,49 @@
+<%= render "header" %>
+<div class="inner">
+      <table class="table">
+        <tr>
+          
+          <th>
+            <%= link_to "Price", cars_path({:sort=>"price",:id=>@model_id}) %> 
+			
+          </th>
+          <th>
+			Model
+          </th>
+          <th>
+            <%= link_to "Year", cars_path({:sort=>"year",:id=>@model_id}) %> 
+          </th>
+          <th>
+          	Owner name    	
+          </th>     
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @cars.each do |car| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= car.price.to_s+" LE" unless car.price.nil?%> 
+          </td>
+          <td>
+            <%= link_to "#{t("web-app-theme.show", :default => car.car_model.name)}", car_path(car) %> 
+          </td>
+         <td>
+            <%= car.year %>
+          </td>
+          <td>
+          	<%= car.user.name unless car.user.nil?%>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", car_path(car) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_car_path(car) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", car_path(car), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+          
+        </tr>
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+      </div>
+    </div>

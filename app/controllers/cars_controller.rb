@@ -46,7 +46,13 @@ class CarsController < ApplicationController
     @car = Car.find(params[:id])
     @models= CarModel.get_models_names
   end
-
+  
+  def mycars
+    if session[:user_id]
+      user = User.find(session[:user_id])
+      @cars = user.cars 
+    end
+  end
   # POST /cars
   # POST /cars.json
   def create
@@ -80,6 +86,7 @@ class CarsController < ApplicationController
     session[:admin]=nil
     redirect_to cars_path
   end
+  
   # PUT /cars/1
   # PUT /cars/1.json
   def update
