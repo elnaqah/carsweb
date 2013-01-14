@@ -42,7 +42,7 @@ cars=[{:year=>'2008-11-22',:cylinders=>'2000',:horse_power=>'250',:doors=>'2',:a
 {:year=>'1998-11-22',:cylinders=>'2200',:horse_power=>'350',:doors=>'5',:air_bags=>true,:abs=>false,:price=>'89500',:car_model_id=>5,:user_id=>5,:used=>true},
 {:year=>'2006-01-22',:cylinders=>'2000',:horse_power=>'250',:doors=>'2',:air_bags=>false,:abs=>false,:price=>'51000',:car_model_id=>5,:user_id=>5,:used=>true},
 {:year=>'2007-03-22',:cylinders=>'2000',:horse_power=>'550',:doors=>'4',:air_bags=>false,:abs=>true,:price=>'100000',:car_model_id=>6,:user_id=>6,:used=>true},
-{:year=>'2006-08-28',:cylinders=>'2200',:horse_power=>'230',:doors=>'2',:air_bags=>true,:abs=>false,:price=>'52000',:car_model_id=>6,:user_id=>6,:used=>true},
+{:year=>'2006-08-28',:cylinders=>'2200',:horse_power=>'230',:doors=>'2',:air_bags=>true,:abs=>false,:price=>'52000',:car_model_id=>6,:user_id=>6,:used=>true}
 
 {:year=>'2013-01-01',:cylinders=>'2000',:horse_power=>'250',:doors=>'2',:air_bags=>true,:abs=>true,:price=>'5000',:car_model_id=>1,:user_id=>1,:used=>false},
 {:year=>'2013-01-01',:cylinders=>'1600',:horse_power=>'150',:doors=>'3',:air_bags=>true,:abs=>false,:price=>'58000',:car_model_id=>1,:user_id=>1,:used=>false},
