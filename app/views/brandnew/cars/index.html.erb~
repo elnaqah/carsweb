@@ -80,7 +80,7 @@
           	<%= car.user.name unless car.user.nil?%>
           </td>
           <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", brandnew_car_path(car) %>
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", car_path(car) %>
           </td>
           
         </tr>
