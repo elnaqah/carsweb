@@ -1,0 +1,2 @@
+module Brandnew::CarsHelper
+end
