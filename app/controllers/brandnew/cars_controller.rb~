@@ -2,7 +2,9 @@ class Brandnew::CarsController < ApplicationController
   # GET /brandnew/cars
   # GET /brandnew/cars.json
   def index
-    @brandnew_cars = Brandnew::Car.all
+
+
+    @brandnew_cars = Car.where(used=true)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +15,7 @@ class Brandnew::CarsController < ApplicationController
   # GET /brandnew/cars/1
   # GET /brandnew/cars/1.json
   def show
-    @brandnew_car = Brandnew::Car.find(params[:id])
+    @brandnew_car = Car.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +26,7 @@ class Brandnew::CarsController < ApplicationController
   # GET /brandnew/cars/new
   # GET /brandnew/cars/new.json
   def new
-    @brandnew_car = Brandnew::Car.new
+    @brandnew_car = Car.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +36,13 @@ class Brandnew::CarsController < ApplicationController
 
   # GET /brandnew/cars/1/edit
   def edit
-    @brandnew_car = Brandnew::Car.find(params[:id])
+    @brandnew_car = Car.find(params[:id])
   end
 
   # POST /brandnew/cars
   # POST /brandnew/cars.json
   def create
-    @brandnew_car = Brandnew::Car.new(params[:brandnew_car])
+    @brandnew_car = Car.new(params[:brandnew_car])
 
     respond_to do |format|
       if @brandnew_car.save
@@ -56,7 +58,7 @@ class Brandnew::CarsController < ApplicationController
   # PUT /brandnew/cars/1
   # PUT /brandnew/cars/1.json
   def update
-    @brandnew_car = Brandnew::Car.find(params[:id])
+    @brandnew_car = Car.find(params[:id])
 
     respond_to do |format|
       if @brandnew_car.update_attributes(params[:brandnew_car])
@@ -72,7 +74,7 @@ class Brandnew::CarsController < ApplicationController
   # DELETE /brandnew/cars/1
   # DELETE /brandnew/cars/1.json
   def destroy
-    @brandnew_car = Brandnew::Car.find(params[:id])
+    @brandnew_car = Car.find(params[:id])
     @brandnew_car.destroy
 
     respond_to do |format|

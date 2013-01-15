@@ -2,7 +2,9 @@ class Brandnew::CarsController < ApplicationController
   # GET /brandnew/cars
   # GET /brandnew/cars.json
   def index
-    @brandnew_cars = Car.all
+
+
+    @brandnew_cars = Car.where(used=false)
 
     respond_to do |format|
       format.html # index.html.erb
