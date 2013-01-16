@@ -9,7 +9,10 @@ class Brandnew::CarsController < ApplicationController
   def index
 
 
-    @brandnew_cars = Car.where(:used=>false)
+ #   if(params[:car_name]!="" && params[:car_name])
+  #  @brandnew_cars = Car.where(:used=>false,:car_model_id=>params[:car_name])
+   # end
+    @brandnew_cars = Car.where(:used=>false,:car_model_id=>params[:car_name])
 
     respond_to do |format|
       format.html # index.html.erb

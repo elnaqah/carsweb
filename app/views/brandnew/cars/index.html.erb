@@ -33,19 +33,7 @@
 			    </ul>
 		   </div>
   <h4><%= flash[:notice] %></h4>
-  <div class="content">
-  	<table width="1265px">
-  		
-  		<tr>
-  		
-		   
-	  		</tr>
-	  		<tr>
-  			
-  			</tr>
-  	</table>
-  	
-	</div>
+  
       
       
     <div class="inner">
@@ -62,9 +50,7 @@
           <th>
             <%= link_to "Year", cars_path({:sort=>"year",:id=>@model_id}) %> 
           </th>
-          <th>
-          	Owner name    	
-          </th>     
+              
           <th class="last">&nbsp;</th>
         </tr>
         <% @brandnew_cars.each do |car| -%>
@@ -78,9 +64,7 @@
          <td>
             <%= car.year %>
           </td>
-          <td>
-          	<%= car.user.name unless car.user.nil?%>
-          </td>
+         
           <td class="last">
             <%= link_to "#{t("web-app-theme.show", :default => "Show")}", brandnew_car_path(car) %>
           </td>

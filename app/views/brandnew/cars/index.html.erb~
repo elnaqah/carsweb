@@ -4,7 +4,7 @@
 
 
 			    <ul class="wat-cf">
-			      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "Used")}", cars_path  %></li>
+			      <li><%= link_to "#{t("web-app-theme.list", :default => "Used")}", cars_path  %></li>
                               <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "New")}", brandnew_cars_path  %></li>
 			      
 			      <% if session[:user_id]%>
@@ -33,19 +33,7 @@
 			    </ul>
 		   </div>
   <h4><%= flash[:notice] %></h4>
-  <div class="content">
-  	<table width="1265px">
-  		
-  		<tr>
-  		
-		   
-	  		</tr>
-	  		<tr>
-  			
-  			</tr>
-  	</table>
-  	
-	</div>
+  
       
       
     <div class="inner">

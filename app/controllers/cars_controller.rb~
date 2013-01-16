@@ -6,9 +6,10 @@ class CarsController < ApplicationController
       @model_id=params[:id]
       @cars = Car.order(params[:sort]).where(:car_model_id=>params[:id],:used=>true)
     elsif(params[:PriceFrom] !="" && params[:PriceFrom] && params[:PriceTo] !="" && params[:PriceTo])
-      @cars=Car.search(params[:PriceFrom],params[:PriceTo])
+      @cars=Car.search(params[:PriceFrom],params[:PriceTo],true)
+    elsif(params[:car_name]!="" && params[:car_name])
     else
-    @cars=Car.order(params[:sort]).all.where(:used=>true)
+    @cars=Car.order(params[:sort]).where(:used=>true)
     end
     @models=CarModel.all
     
