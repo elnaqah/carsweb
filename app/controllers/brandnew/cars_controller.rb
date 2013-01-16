@@ -12,8 +12,9 @@ class Brandnew::CarsController < ApplicationController
 
   if params[:car_name]!=session[:car_name]
   session[:car_name]=car_id
-
-    @brandnew_cars = Car.where(:used=>false,:car_model_id=>params[:car_name])
+  redirect_to :car_name => car_id and return
+  end
+    @brandnew_cars = Car.where(:used=>false,:car_model_id=>car_id)
 
     if(params[:PriceFrom] !="" && params[:PriceFrom] && params[:PriceTo] !="" && params[:PriceTo])
       @brandnew_cars=Car.search1(params[:PriceFrom],params[:PriceTo],false,params[:id])
