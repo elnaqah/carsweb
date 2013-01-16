@@ -11,5 +11,8 @@ def self.search(price_from,price_to,used)
    end
  end
 
+def self.search1(price_from,price_to,used,id)
+  find(:all,:conditions =>["price BETWEEN #{price_from} AND #{price_to} AND used =? AND car_model_id=?",used,id])
+end
 
 end

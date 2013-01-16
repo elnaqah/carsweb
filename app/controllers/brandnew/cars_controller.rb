@@ -8,11 +8,16 @@ class Brandnew::CarsController < ApplicationController
   # GET /brandnew/cars.json
   def index
 
+  car_id=params[:car_name] || session[:car_name]
 
- #   if(params[:car_name]!="" && params[:car_name])
-  #  @brandnew_cars = Car.where(:used=>false,:car_model_id=>params[:car_name])
-   # end
+  if params[:car_name]!=session[:car_name]
+  session[:car_name]=car_id
+
     @brandnew_cars = Car.where(:used=>false,:car_model_id=>params[:car_name])
+
+    if(params[:PriceFrom] !="" && params[:PriceFrom] && params[:PriceTo] !="" && params[:PriceTo])
+      @brandnew_cars=Car.search1(params[:PriceFrom],params[:PriceTo],false,params[:id])
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -91,3 +96,4 @@ class Brandnew::CarsController < ApplicationController
     end
   end
 end
+

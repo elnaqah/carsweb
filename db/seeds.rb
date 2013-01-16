@@ -55,7 +55,10 @@ cars=[{:year=>'2008-11-22',:cylinders=>'2000',:horse_power=>'250',:doors=>'2',:a
 {:year=>'2013-01-01',:cylinders=>'2200',:horse_power=>'350',:doors=>'5',:air_bags=>true,:abs=>false,:price=>'89500',:car_model_id=>5,:user_id=>5,:used=>false},
 {:year=>'2013-01-01',:cylinders=>'2000',:horse_power=>'250',:doors=>'2',:air_bags=>false,:abs=>false,:price=>'51000',:car_model_id=>5,:user_id=>5,:used=>false},
 {:year=>'2013-01-01',:cylinders=>'2000',:horse_power=>'550',:doors=>'4',:air_bags=>false,:abs=>true,:price=>'100000',:car_model_id=>6,:user_id=>6,:used=>false},
-{:year=>'2013-01-01',:cylinders=>'2200',:horse_power=>'230',:doors=>'2',:air_bags=>true,:abs=>false,:price=>'52000',:car_model_id=>6,:user_id=>6,:used=>false}    ]
+{:year=>'2013-01-01',:cylinders=>'2200',:horse_power=>'230',:doors=>'2',:air_bags=>true,:abs=>false,:price=>'52000',:car_model_id=>6,:user_id=>6,:used=>false},
+{:year=>'2013-01-01',:cylinders=>'2000',:horse_power=>'250',:doors=>'2',:air_bags=>true,:abs=>true,:price=>'5100',:car_model_id=>1,:user_id=>1,:used=>false},
+{:year=>'2013-01-01',:cylinders=>'2000',:horse_power=>'250',:doors=>'2',:air_bags=>true,:abs=>true,:price=>'5200',:car_model_id=>1,:user_id=>1,:used=>false}
+    ]
 
 
 cars.each do |c|
