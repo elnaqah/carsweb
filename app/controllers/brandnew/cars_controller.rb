@@ -1,10 +1,15 @@
 class Brandnew::CarsController < ApplicationController
+
+  def show_models
+  @car_models=CarModel.all
+  end
+
   # GET /brandnew/cars
   # GET /brandnew/cars.json
   def index
 
 
-    @brandnew_cars = Car.where(used=false)
+    @brandnew_cars = Car.where(:used=>false)
 
     respond_to do |format|
       format.html # index.html.erb

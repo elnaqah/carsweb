@@ -4,7 +4,7 @@ class Brandnew::CarsController < ApplicationController
   def index
 
 
-    @brandnew_cars = Car.where(used=true)
+    @brandnew_cars = Car.where(:used=>false)
 
     respond_to do |format|
       format.html # index.html.erb

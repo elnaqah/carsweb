@@ -2,7 +2,7 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", brandnew_cars_path  %></li>
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "Used")}", brandnew_cars_path  %></li>
       <% if session[:user_id]%>
       <li><%= link_to "#{t("web-app-theme.new", :default => "Add used car")}", new_brandnew_car_path %></li>
       <% end %>
@@ -70,4 +70,4 @@
   </div>
 </div>
 
-<% content_for :sidebar, render(:partial => 'sidebar') -%>
+
