@@ -6,7 +6,7 @@ Carsweb::Application.routes.draw do
   resources :cars
   
   resources :users
-
+  get 'brandnew/cars/show_models'
   #backend 
   %w{cars car_models owners}.each do |class_name|
  scope :module => "backend" do

@@ -13,6 +13,11 @@ Carsweb::Application.routes.draw do
   resources class_name.to_sym , :path=>"/backend/#{class_name}" , :as => "backend_#{class_name}".to_sym
  end
 end
+ #brandnew
+scope :module => "brandnew" do
+  resources :cars , :path=>"/brandnew/cars" , :as => :brandnew_cars
+ end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
