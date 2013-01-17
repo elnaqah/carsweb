@@ -17,6 +17,10 @@ end
 scope :module => "brandnew" do
   resources :cars , :path=>"/brandnew/cars" , :as => :brandnew_cars
  end
+ #backend/brandnew
+scope :module => "backend/brandnew" do
+  resources :cars , :path=>"/backend/brandnew/cars" , :as => :backend_brandnew_cars
+ end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

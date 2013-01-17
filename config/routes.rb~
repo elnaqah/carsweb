@@ -6,7 +6,7 @@ Carsweb::Application.routes.draw do
   resources :cars
   
   resources :users
-
+  get 'brandnew/cars/show_models'
   #backend 
   %w{cars car_models owners}.each do |class_name|
  scope :module => "backend" do
@@ -16,6 +16,10 @@ end
  #brandnew
 scope :module => "brandnew" do
   resources :cars , :path=>"/brandnew/cars" , :as => :brandnew_cars
+ end
+ #backend/brandnew
+scope :module => "backend/brandnew" do
+  resources :cars , :path=>"/backend/brandnew/cars" , :as => :backedn_brandnew_cars
  end
 
   # The priority is based upon order of creation:

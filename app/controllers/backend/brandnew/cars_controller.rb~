@@ -25,7 +25,7 @@ class Backend::Brandnew::CarsController < ApplicationController
   # GET /backend/brandnew/cars/new.json
   def new
     @backend_brandnew_car = Car.new
-    @models=CarModel.all
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @backend_brandnew_car }
