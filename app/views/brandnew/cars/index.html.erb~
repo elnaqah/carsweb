@@ -24,7 +24,7 @@
        <% end %>
       </li>
       <li>
-       <%= form_tag("/brandnew/cars?PriceFrom=""&PriceTo=""",:action=>'index',:method=>"get") do %>
+       <%= form_tag("/brandnew/cars?PriceFrom=\"\"&PriceTo=\"\"",:action=>'index',:method=>"get") do %>
        <p>
         <%= submit_tag "All",:name =>nil%>
        </p>

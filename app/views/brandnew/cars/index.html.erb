@@ -5,7 +5,7 @@
 
 			    <ul class="wat-cf">
 			      <li><%= link_to "#{t("web-app-theme.list", :default => "Used")}", cars_path  %></li>
-                              <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "New")}", brandnew_cars_path  %></li>
+                              <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "New")}", brandnew_cars_show_models_path  %></li>
 			      
 			      <% if session[:user_id]%>
 			      <li><%= link_to "#{t("web-app-theme.new", :default => "Add used car")}", new_car_path %></li>
