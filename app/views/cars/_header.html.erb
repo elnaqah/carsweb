@@ -11,6 +11,9 @@
 			      <%if locals[:cname]=="show"%>
 			      <li class="<%='first active' unless (!locals.nil? && locals[:cname]!='show')%>"><%= link_to "#{t("web-app-theme.new", :default => "Show")}", car_path(@car.id) %></li>
 			      <% end %>
+			      <%if locals[:cname]=="edit"%>
+			      <li class="<%='first active' unless (!locals.nil? && locals[:cname]!='edit')%>"><%= link_to "#{t("web-app-theme.new", :default => "Edit")}", edit_car_path(@car.id) %></li>
+			      <% end %>
 			      
 			    </ul>
 	</div>

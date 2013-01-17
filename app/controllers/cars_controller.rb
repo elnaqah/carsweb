@@ -50,7 +50,16 @@ class CarsController < ApplicationController
   def mycars
     if session[:user_id]
       user = User.find(session[:user_id])
-      @cars = user.cars 
+      #@cars = user.cars 
+    if(params[:id] != "" && params[:id])
+      @model_id=params[:id]
+      @cars = user.cars.order(params[:sort]).where(:car_model_id=>params[:id])
+    elsif(params[:PriceFrom] !="" && params[:PriceFrom] && params[:PriceTo] !="" && params[:PriceTo])
+      @cars=user.cars.search(params[:PriceFrom],params[:PriceTo])
+    else
+    @cars=user.cars.order(params[:sort]).all
+    end
+    @models=CarModel.all
     end
   end
   # POST /cars

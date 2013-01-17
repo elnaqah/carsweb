@@ -1,5 +1,5 @@
 <div class="block">
-  <%= render "header" %>
+  <%= render "header" ,:locals => {cname:'edit'} %>
   <div class="content">
     <h2 class="title"><%= t("web-app-theme.edit", :default => "Edit") %> Car</h2>
     <div class="inner">
