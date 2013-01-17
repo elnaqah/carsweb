@@ -19,13 +19,13 @@
 			          to:
 			       <%= text_field_tag :PriceTo,params[:PriceTo]%>
 			       <%= submit_tag "Search",:id =>"search_btn"%>
-			       <%= form_tag("/cars",:action=>'index',:method=>"get") do %>			       
-			        <%= submit_tag "All cars",:name =>nil%>			       
-			       <% end %>
+			       
 			       </p>
 			       <% end %>
 			      
-			      
+			      <%= form_tag("/cars",:action=>'index',:method=>"get") do %>			       
+			        <%= submit_tag "All cars",:name =>nil%>			       
+			       <% end %>
 			       
       
   				</div>

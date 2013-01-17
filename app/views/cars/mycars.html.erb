@@ -1,4 +1,27 @@
 <%= render "header", :locals => { :cname => "mycars" }%>
+<div class="select"> 
+            <% if false %><h5 style="color: black">Select Model</h5><% end %>
+            <%= form_tag("/mycars",:action => 'mycars', :method => "get") do %>
+              <%= select_tag :id, options_from_collection_for_select(@models, :id, :name,@model_id), :onchange => 'submit()',:prompt => "All Models",:id=>"car_model_id" %> 
+              <% end %>
+              
+             <%= form_tag("/mycars",:action=>'mycars',:method=>"get") do %>
+             <p style="color: black">Price from: 
+             <%= text_field_tag :PriceFrom,params[:PriceFrom]%>
+                to:
+             <%= text_field_tag :PriceTo,params[:PriceTo]%>
+             <%= submit_tag "Search",:id =>"search_btn"%>
+            
+             </p>
+             <% end %>
+              <%= form_tag("/mycars",:action=>'mycars',:method=>"get") do %>             
+              <%= submit_tag "All cars",:name =>nil%>            
+             <% end %>
+            
+            
+             
+      
+          </div>
 <div class="inner">
       <table class="table">
         <tr>
