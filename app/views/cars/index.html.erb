@@ -1,5 +1,5 @@
 <div class="block">
-  <%= render "header" %>
+  <%= render "header" , :locals => { :cname => "index" }%>
   <h4><%= flash[:notice] %></h4>
   <div class="content">
   	<table width="1265px">

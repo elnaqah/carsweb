@@ -1,12 +1,15 @@
   	<div class="secondary-navigation">
   				    <ul class="wat-cf">
-			      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "Cars list")}", cars_path  %></li>
+			      <li class= "<%='first active' unless ( locals[:cname]!='index')%>"><%= link_to "#{t("web-app-theme.list", :default => "Cars list")}", cars_path  %></li>
 			      <% if session[:user_id]%>
-			      <li><%= link_to "#{t("web-app-theme.new", :default => "Add used car")}", new_car_path %></li>
-			      <li><%= link_to "#{t("web-app-theme.new", :default => "My cars")}", mycars_path %></li>
+			      <li class="<%='first active' unless (!locals.nil? && locals[:cname]!='new')%>"><%= link_to "#{t("web-app-theme.new", :default => "Add used car")}", new_car_path %></li>
+			      <li class="<%='first active' unless (!locals.nil? && locals[:cname]!='mycars')%>"><%= link_to "#{t("web-app-theme.new", :default => "My cars")}", mycars_path %></li>
 			      <% end %>
 			      <% if session[:admin]%>
 			      <li><%= link_to "#{t("web-app-theme.new", :default => "Administration")}", backend_cars_path %></li>
+			      <% end %>
+			      <%if locals[:cname]=="show"%>
+			      <li class="<%='first active' unless (!locals.nil? && locals[:cname]!='show')%>"><%= link_to "#{t("web-app-theme.new", :default => "Show")}", car_path(@car.id) %></li>
 			      <% end %>
 			      
 			    </ul>
