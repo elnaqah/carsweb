@@ -9,21 +9,25 @@ class Brandnew::CarsController < ApplicationController
   def index
 
   car_id=params[:car_name] || session[:car_name]
-  price_from=params[:PriceFrom] || session[:PriceFrom]
-  price_to=params[:PriceTo] || session[:PriceTo]
+  price_from=params[:PriceFrom] || flash[:PriceFrom]
+  price_to=params[:PriceTo] || flash[:PriceTo]
   
-  if params[:car_name]!=session[:car_name] or params[:PriceFrom] != session[:PriceFrom] or params[:PriceTo] || session[:PriceTo]
+  if params[:car_name]!=flash[:car_name] or params[:PriceFrom] != flash[:PriceFrom] or params[:PriceTo] != flash[:PriceTo]
 
-  session[:car_name]=car_id
-  session[:PriceFrom]=price_from
-  session[:PriceTo]=price_to
+  flash[:car_name]=car_id
+  flash[:PriceFrom]=price_from
+  flash[:PriceTo]=price_to
 
   redirect_to :car_name => car_id ,:PriceFrom => price_from , :PriceTo => price_to and return
   end
-    @brandnew_cars = Car.where(:used=>false,:car_model_id=>car_id)
+    
 
     if(params[:PriceFrom] !="" && params[:PriceFrom] && params[:PriceTo] !="" && params[:PriceTo])
       @brandnew_cars=Car.search1(price_from,price_to,false,car_id)
+    else(params[:PriceFrom] =="" && params[:PriceTo] =="")
+      @brandnew_cars=Car.where(:used=>false,:car_model_id=>car_id)
+   
+  
     end
 
     respond_to do |format|
