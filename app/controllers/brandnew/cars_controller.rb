@@ -7,7 +7,7 @@ class Brandnew::CarsController < ApplicationController
   # GET /brandnew/cars
   # GET /brandnew/cars.json
   def index
-
+  @params=params
   @car_id=params[:car_name] || session[:car_name]
   price_from=params[:PriceFrom] || flash[:PriceFrom]
   price_to=params[:PriceTo] || flash[:PriceTo]
@@ -22,7 +22,7 @@ class Brandnew::CarsController < ApplicationController
     
 
     if(params[:PriceFrom] !="" && params[:PriceFrom] && params[:PriceTo] !="" && params[:PriceTo])
-      @brandnew_cars=Car.where(:used=>false,:car_model_id=>@car_id).search1(price_from,price_to,false,@car_id).order(params[:sort])
+      @brandnew_cars=Car.where(:used=>false,:car_model_id=>@car_id).order(params[:sort]).search1(price_from,price_to,false,@car_id)
     else(params[:PriceFrom] =="" && params[:PriceTo] =="")
       @brandnew_cars=Car.where(:used=>false,:car_model_id=>@car_id).order(params[:sort])
    
