@@ -22,9 +22,9 @@ class Brandnew::CarsController < ApplicationController
     
 
     if(params[:PriceFrom] !="" && params[:PriceFrom] && params[:PriceTo] !="" && params[:PriceTo])
-      @brandnew_cars=Car.where(:used=>false,:car_model_id=>@car_id).search1(price_from,price_to,false,@car_id)
+      @brandnew_cars=Car.where(:used=>false,:car_model_id=>@car_id).search1(price_from,price_to,false,@car_id).order(params[:sort])
     else(params[:PriceFrom] =="" && params[:PriceTo] =="")
-      @brandnew_cars=Car.where(:used=>false,:car_model_id=>@car_id)
+      @brandnew_cars=Car.where(:used=>false,:car_model_id=>@car_id).order(params[:sort])
    
   
     end

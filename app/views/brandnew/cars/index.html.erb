@@ -33,14 +33,14 @@
         <tr>
           
           <th>
-            <%= link_to "Price", cars_path({:sort=>"price",:id=>@model_id}) %> 
+            <%= link_to "Price", brandnew_cars_path({:sort=>"price",:car_name=>@car_id}) %> 
 			
           </th>
           <th>
 			Model
           </th>
           <th>
-            <%= link_to "Year", cars_path({:sort=>"year",:id=>@model_id}) %> 
+            <%= link_to "Year", brandnew_cars_path({:sort=>"year",:car_name=>@car_id}) %> 
           </th>
               
           <th class="last">&nbsp;</th>
