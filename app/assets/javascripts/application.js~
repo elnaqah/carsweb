@@ -17,16 +17,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree 
-//function hello() {
+function hello() {
 
 
 
-//if(($('#PriceFrom').val()=="" && $('#PriceTo').val()=="")||($('#PriceFrom').val()=="")||( $('#PriceTo').val()=="")) 
-//  alert("Please enter prices in both price fields");
+if(($('#PriceFrom').val()=="" && $('#PriceTo').val()=="")||($('#PriceFrom').val()=="")||( $('#PriceTo').val()=="")) 
+  alert("Please enter prices in both price fields");
 
-//else if($('#PriceFrom').val() =~ r%{^[0-9]$})
-//   alert("Please enter prices in digits");
-//else $('#search').submit();
+else if($('#PriceFrom').val() =~ r%{^[0-9]$})
+   alert("Please enter prices in digits");
+else $('#search').submit();
 
 
-//} 
+} 

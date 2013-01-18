@@ -1,6 +1,7 @@
   	<div class="secondary-navigation">
   				    <ul class="wat-cf">
 			      <li class= "<%='first active' unless ( locals[:cname]!='index')%>"><%= link_to "#{t("web-app-theme.list", :default => "Cars list")}", cars_path  %></li>
+			      <li class="<%='first active' unless (!locals.nil? && locals[:cname]!='new_cars')%>"><%= link_to "#{t("web-app-theme.list", :default => "New")}", brandnew_cars_show_models_path  %></li>
 			      <% if session[:user_id]%>
 			      <li class="<%='first active' unless (!locals.nil? && locals[:cname]!='new')%>"><%= link_to "#{t("web-app-theme.new", :default => "Add used car")}", new_car_path %></li>
 			      <li class="<%='first active' unless (!locals.nil? && locals[:cname]!='mycars')%>"><%= link_to "#{t("web-app-theme.new", :default => "My cars")}", mycars_path %></li>
