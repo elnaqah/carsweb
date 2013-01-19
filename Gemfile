@@ -21,7 +21,7 @@ group :assets do
 end
   gem 'simplecov', :require => false, :group => :test
 group :development, :test do
-  gem 'dynamic_form'
+ 
   gem 'sqlite3'
   gem 'ZenTest'
   gem 'ruby-debug19', :require => 'ruby-debug'
@@ -42,10 +42,11 @@ end
 
 gem 'jquery-rails'
 gem 'omniauth-facebook', '1.4.0'
-
+gem 'dynamic_form'
 group :production do
   gem 'pg'
 end
+ 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

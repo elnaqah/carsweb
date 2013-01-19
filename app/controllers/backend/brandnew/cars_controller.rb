@@ -41,7 +41,7 @@ class Backend::Brandnew::CarsController < ApplicationController
   # POST /backend/brandnew/cars.json
   def create
     @backend_brandnew_car =Car.new(params[:backend_brandnew_car])
-
+    @models=CarModel.all
     respond_to do |format|
       if @backend_brandnew_car.save
         format.html { redirect_to @backend_brandnew_car, notice: 'Car was successfully created.' }

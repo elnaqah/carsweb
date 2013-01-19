@@ -3,7 +3,7 @@ belongs_to :car_model
 #belongs_to :owner
 belongs_to :user
 
-validates :cylinders,:presence=>true
+
 
 def self.search(price_from,price_to,used)
    if (price_from && price_to&&used)

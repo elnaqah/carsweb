@@ -24,8 +24,8 @@ class Backend::Brandnew::CarsController < ApplicationController
   # GET /backend/brandnew/cars/new
   # GET /backend/brandnew/cars/new.json
   def new
-    @backend_brandnew_car = Car.new
-
+    @backend_brandnew_car = Car.create(params[:backend_brandnew_car])
+    @models=CarModel.all
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @backend_brandnew_car }
@@ -41,7 +41,7 @@ class Backend::Brandnew::CarsController < ApplicationController
   # POST /backend/brandnew/cars.json
   def create
     @backend_brandnew_car =Car.new(params[:backend_brandnew_car])
-
+    @models=CarModel.all
     respond_to do |format|
       if @backend_brandnew_car.save
         format.html { redirect_to @backend_brandnew_car, notice: 'Car was successfully created.' }

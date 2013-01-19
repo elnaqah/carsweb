@@ -1,8 +1,8 @@
-<%= form_for(@backend_brandnew_car, :url => url_for(:controller => 'backend/brandnew/cars', :action => 'new',:method=>"get")) do |f| %>
-  <%= f.error_messages %>
+<%= form_for(@backend_brandnew_car, :url => url_for(:controller => 'backend/brandnew/cars', :action => 'create'),:method=>"post") do |f| %>
+  
   <% if @backend_brandnew_car.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@backend_brandnew_car.errors.count, "error") %> prohibited this backend_brandnew_car from being saved:</h2>
+      <h2><%= pluralize(@backend_brandnew_car.errors.count, "error") %> prohibited this car from being saved:</h2>
 
       <ul>
       <% @backend_brandnew_car.errors.full_messages.each do |msg| %>
