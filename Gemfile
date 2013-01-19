@@ -21,6 +21,7 @@ group :assets do
 end
   gem 'simplecov', :require => false, :group => :test
 group :development, :test do
+  gem 'dynamic_form'
   gem 'sqlite3'
   gem 'ZenTest'
   gem 'ruby-debug19', :require => 'ruby-debug'

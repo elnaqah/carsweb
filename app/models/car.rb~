@@ -3,6 +3,8 @@ belongs_to :car_model
 #belongs_to :owner
 belongs_to :user
 
+validates :cylinders,:presence=>true,:format{:with=>/[0-9]/,:message=>"Only numbers allowed"}
+
 def self.search(price_from,price_to,used)
    if (price_from && price_to&&used)
     find(:all,:conditions =>["price BETWEEN #{price_from} AND #{price_to} AND used =?",used])
@@ -11,7 +13,7 @@ def self.search(price_from,price_to,used)
    end
  end
 
-def self.search(price_from,price_to,used,id)
+def self.search1(price_from,price_to,used,id)
   find(:all,:conditions =>["price BETWEEN #{price_from} AND #{price_to} AND used =? AND car_model_id=?",used,id])
 end
 

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.0'
-
+gem "dynamic_form"
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -21,6 +21,7 @@ group :assets do
 end
   gem 'simplecov', :require => false, :group => :test
 group :development, :test do
+  gem "dynamic_form"
   gem 'sqlite3'
   gem 'ZenTest'
   gem 'ruby-debug19', :require => 'ruby-debug'
