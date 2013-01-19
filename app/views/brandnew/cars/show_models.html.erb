@@ -6,16 +6,14 @@
 	</div>
       
       
-   
+   <table>
         <% @car_models.each do |car| -%>
         <tr>
           
           <td>
-            <%= link_to "#{t("web-app-theme", :default => car.name)}", brandnew_cars_path(:action=>"get",:car_name=>car.id) %> 
+           <h3> <%= link_to "#{t("web-app-theme", :default => car.name)}", brandnew_cars_path(:action=>"get",:car_name=>car.id) %></h3> 
           </td>
-         
-        
-          
+   
         </tr>
         <% end -%>
       </table>
