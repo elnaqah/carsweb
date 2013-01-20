@@ -2,7 +2,7 @@ class Backend::CarsController < ApplicationController
   # GET /backend/cars
   # GET /backend/cars.json
   def index
-    @backend_cars = Car.all
+    @backend_cars = Car.where(:used=>true)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @backend_cars }
@@ -43,7 +43,9 @@ class Backend::CarsController < ApplicationController
   def create
     @backend_car = Car.new(params[:backend_car])
     #logger.debug(">>>>>create")
+
     respond_to do |format|
+      @backend_car.used=true
       if @backend_car.save
         format.html { redirect_to backend_car_path(@backend_car), notice: 'Car was successfully created.' }
         logger.debug(">>>>>backend format html create")
@@ -62,7 +64,7 @@ class Backend::CarsController < ApplicationController
 
     respond_to do |format|
       if @backend_car.update_attributes(params[:backend_car])
-        format.html { redirect_to @backend_car, notice: 'Car was successfully updated.' }
+        format.html { redirect_to backend_car_path(@backend_car), notice: 'Car was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

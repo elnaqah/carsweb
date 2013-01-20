@@ -2,7 +2,7 @@ class Backend::Brandnew::CarsController < ApplicationController
   # GET /backend/brandnew/cars
   # GET /backend/brandnew/cars.json
   def index
-    @backend_brandnew_cars =Car.all
+    @backend_brandnew_cars =Car.where(:used=>false)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -35,14 +35,16 @@ class Backend::Brandnew::CarsController < ApplicationController
   # GET /backend/brandnew/cars/1/edit
   def edit
     @backend_brandnew_car = Car.find(params[:id])
+    @models=CarModel.all
   end
 
   # POST /backend/brandnew/cars
   # POST /backend/brandnew/cars.json
   def create
     @backend_brandnew_car =Car.new(params[:backend_brandnew_car])
-
+    logger.debug(">>>>>>>>>"+@backend_brandnew_car.class.to_s)
     respond_to do |format|
+      @backend_brandnew_car.used=false
       if @backend_brandnew_car.save
         format.html { redirect_to @backend_brandnew_car, notice: 'Car was successfully created.' }
         format.json { render json: @backend_brandnew_car, status: :created, location: @backend_brandnew_car }
@@ -60,7 +62,7 @@ class Backend::Brandnew::CarsController < ApplicationController
 
     respond_to do |format|
       if @backend_brandnew_car.update_attributes(params[:backend_brandnew_car])
-        format.html { redirect_to @backend_brandnew_car, notice: 'Car was successfully updated.' }
+        format.html { redirect_to backend_brandnew_car_path(@backend_brandnew_car), notice: 'Car was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
