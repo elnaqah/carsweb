@@ -36,7 +36,7 @@ describe Backend::OwnersController do
 
   describe "GET index" do
     it "assigns all backend_owners as @backend_owners" do
-      owner = Backend::Owner.create! valid_attributes
+      owner = Owner.create! valid_attributes
       get :index, {}, valid_session
       assigns(:backend_owners).should eq([owner])
     end
@@ -44,7 +44,7 @@ describe Backend::OwnersController do
 
   describe "GET show" do
     it "assigns the requested backend_owner as @backend_owner" do
-      owner = Backend::Owner.create! valid_attributes
+      owner = Owner.create! valid_attributes
       get :show, {:id => owner.to_param}, valid_session
       assigns(:backend_owner).should eq(owner)
     end
@@ -53,13 +53,13 @@ describe Backend::OwnersController do
   describe "GET new" do
     it "assigns a new backend_owner as @backend_owner" do
       get :new, {}, valid_session
-      assigns(:backend_owner).should be_a_new(Backend::Owner)
+      assigns(:backend_owner).should be_a_new(Owner)
     end
   end
 
   describe "GET edit" do
     it "assigns the requested backend_owner as @backend_owner" do
-      owner = Backend::Owner.create! valid_attributes
+      owner = Owner.create! valid_attributes
       get :edit, {:id => owner.to_param}, valid_session
       assigns(:backend_owner).should eq(owner)
     end
@@ -67,35 +67,35 @@ describe Backend::OwnersController do
 
   describe "POST create" do
     describe "with valid params" do
-      it "creates a new Backend::Owner" do
+      it "creates a new Owner" do
         expect {
           post :create, {:backend_owner => valid_attributes}, valid_session
-        }.to change(Backend::Owner, :count).by(1)
+        }.to change(Owner, :count).by(1)
       end
 
       it "assigns a newly created backend_owner as @backend_owner" do
         post :create, {:backend_owner => valid_attributes}, valid_session
-        assigns(:backend_owner).should be_a(Backend::Owner)
+        assigns(:backend_owner).should be_a(Owner)
         assigns(:backend_owner).should be_persisted
       end
 
       it "redirects to the created backend_owner" do
         post :create, {:backend_owner => valid_attributes}, valid_session
-        response.should redirect_to(Backend::Owner.last)
+        response.should redirect_to(Owner.last)
       end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved backend_owner as @backend_owner" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Backend::Owner.any_instance.stub(:save).and_return(false)
+        Owner.any_instance.stub(:save).and_return(false)
         post :create, {:backend_owner => {}}, valid_session
-        assigns(:backend_owner).should be_a_new(Backend::Owner)
+        assigns(:backend_owner).should be_a_new(Owner)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Backend::Owner.any_instance.stub(:save).and_return(false)
+        Owner.any_instance.stub(:save).and_return(false)
         post :create, {:backend_owner => {}}, valid_session
         response.should render_template("new")
       end
@@ -105,23 +105,23 @@ describe Backend::OwnersController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested backend_owner" do
-        owner = Backend::Owner.create! valid_attributes
+        owner = Owner.create! valid_attributes
         # Assuming there are no other backend_owners in the database, this
-        # specifies that the Backend::Owner created on the previous line
+        # specifies that the Owner created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Backend::Owner.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
+        Owner.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
         put :update, {:id => owner.to_param, :backend_owner => {'these' => 'params'}}, valid_session
       end
 
       it "assigns the requested backend_owner as @backend_owner" do
-        owner = Backend::Owner.create! valid_attributes
+        owner = Owner.create! valid_attributes
         put :update, {:id => owner.to_param, :backend_owner => valid_attributes}, valid_session
         assigns(:backend_owner).should eq(owner)
       end
 
       it "redirects to the backend_owner" do
-        owner = Backend::Owner.create! valid_attributes
+        owner = Owner.create! valid_attributes
         put :update, {:id => owner.to_param, :backend_owner => valid_attributes}, valid_session
         response.should redirect_to(owner)
       end
@@ -129,17 +129,17 @@ describe Backend::OwnersController do
 
     describe "with invalid params" do
       it "assigns the backend_owner as @backend_owner" do
-        owner = Backend::Owner.create! valid_attributes
+        owner = Owner.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Backend::Owner.any_instance.stub(:save).and_return(false)
+        Owner.any_instance.stub(:save).and_return(false)
         put :update, {:id => owner.to_param, :backend_owner => {}}, valid_session
         assigns(:backend_owner).should eq(owner)
       end
 
       it "re-renders the 'edit' template" do
-        owner = Backend::Owner.create! valid_attributes
+        owner = Owner.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Backend::Owner.any_instance.stub(:save).and_return(false)
+        Owner.any_instance.stub(:save).and_return(false)
         put :update, {:id => owner.to_param, :backend_owner => {}}, valid_session
         response.should render_template("edit")
       end
@@ -148,14 +148,14 @@ describe Backend::OwnersController do
 
   describe "DELETE destroy" do
     it "destroys the requested backend_owner" do
-      owner = Backend::Owner.create! valid_attributes
+      owner = Owner.create! valid_attributes
       expect {
         delete :destroy, {:id => owner.to_param}, valid_session
-      }.to change(Backend::Owner, :count).by(-1)
+      }.to change(Owner, :count).by(-1)
     end
 
     it "redirects to the backend_owners list" do
-      owner = Backend::Owner.create! valid_attributes
+      owner = Owner.create! valid_attributes
       delete :destroy, {:id => owner.to_param}, valid_session
       response.should redirect_to(backend_owners_url)
     end

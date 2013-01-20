@@ -36,7 +36,7 @@ describe Backend::Brandnew::CarsController do
 
   describe "GET index" do
     it "assigns all backend_brandnew_cars as @backend_brandnew_cars" do
-      car = Backend::Brandnew::Car.create! valid_attributes
+      car = Car.create! valid_attributes
       get :index, {}, valid_session
       assigns(:backend_brandnew_cars).should eq([car])
     end
@@ -44,7 +44,7 @@ describe Backend::Brandnew::CarsController do
 
   describe "GET show" do
     it "assigns the requested backend_brandnew as @backend_brandnew" do
-      car = Backend::Brandnew::Car.create! valid_attributes
+      car = Car.create! valid_attributes
       get :show, {:id => car.to_param}, valid_session
       assigns(:backend_brandnew).should eq(car)
     end
@@ -53,13 +53,13 @@ describe Backend::Brandnew::CarsController do
   describe "GET new" do
     it "assigns a new backend_brandnew as @backend_brandnew" do
       get :new, {}, valid_session
-      assigns(:backend_brandnew).should be_a_new(Backend::Brandnew::Car)
+      assigns(:backend_brandnew).should be_a_new(Car)
     end
   end
 
   describe "GET edit" do
     it "assigns the requested backend_brandnew as @backend_brandnew" do
-      car = Backend::Brandnew::Car.create! valid_attributes
+      car = Car.create! valid_attributes
       get :edit, {:id => car.to_param}, valid_session
       assigns(:backend_brandnew).should eq(car)
     end
@@ -67,35 +67,35 @@ describe Backend::Brandnew::CarsController do
 
   describe "POST create" do
     describe "with valid params" do
-      it "creates a new Backend::Brandnew::Car" do
+      it "creates a new Car" do
         expect {
           post :create, {:backend_brandnew => valid_attributes}, valid_session
-        }.to change(Backend::Brandnew::Car, :count).by(1)
+        }.to change(Car, :count).by(1)
       end
 
       it "assigns a newly created backend_brandnew as @backend_brandnew" do
         post :create, {:backend_brandnew => valid_attributes}, valid_session
-        assigns(:backend_brandnew).should be_a(Backend::Brandnew::Car)
+        assigns(:backend_brandnew).should be_a(Car)
         assigns(:backend_brandnew).should be_persisted
       end
 
       it "redirects to the created backend_brandnew" do
         post :create, {:backend_brandnew => valid_attributes}, valid_session
-        response.should redirect_to(Backend::Brandnew::Car.last)
+        response.should redirect_to(Car.last)
       end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved backend_brandnew as @backend_brandnew" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Backend::Brandnew::Car.any_instance.stub(:save).and_return(false)
+        Car.any_instance.stub(:save).and_return(false)
         post :create, {:backend_brandnew => {}}, valid_session
-        assigns(:backend_brandnew).should be_a_new(Backend::Brandnew::Car)
+        assigns(:backend_brandnew).should be_a_new(Car)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Backend::Brandnew::Car.any_instance.stub(:save).and_return(false)
+        Car.any_instance.stub(:save).and_return(false)
         post :create, {:backend_brandnew => {}}, valid_session
         response.should render_template("new")
       end
@@ -105,23 +105,23 @@ describe Backend::Brandnew::CarsController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested backend_brandnew" do
-        car = Backend::Brandnew::Car.create! valid_attributes
+        car = Car.create! valid_attributes
         # Assuming there are no other backend_brandnew_cars in the database, this
-        # specifies that the Backend::Brandnew::Car created on the previous line
+        # specifies that the Car created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Backend::Brandnew::Car.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
+        Car.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
         put :update, {:id => car.to_param, :backend_brandnew => {'these' => 'params'}}, valid_session
       end
 
       it "assigns the requested backend_brandnew as @backend_brandnew" do
-        car = Backend::Brandnew::Car.create! valid_attributes
+        car = Car.create! valid_attributes
         put :update, {:id => car.to_param, :backend_brandnew => valid_attributes}, valid_session
         assigns(:backend_brandnew).should eq(car)
       end
 
       it "redirects to the backend_brandnew" do
-        car = Backend::Brandnew::Car.create! valid_attributes
+        car = Car.create! valid_attributes
         put :update, {:id => car.to_param, :backend_brandnew => valid_attributes}, valid_session
         response.should redirect_to(car)
       end
@@ -129,17 +129,17 @@ describe Backend::Brandnew::CarsController do
 
     describe "with invalid params" do
       it "assigns the backend_brandnew as @backend_brandnew" do
-        car = Backend::Brandnew::Car.create! valid_attributes
+        car = Car.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Backend::Brandnew::Car.any_instance.stub(:save).and_return(false)
+        Car.any_instance.stub(:save).and_return(false)
         put :update, {:id => car.to_param, :backend_brandnew => {}}, valid_session
         assigns(:backend_brandnew).should eq(car)
       end
 
       it "re-renders the 'edit' template" do
-        car = Backend::Brandnew::Car.create! valid_attributes
+        car = Car.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Backend::Brandnew::Car.any_instance.stub(:save).and_return(false)
+        Car.any_instance.stub(:save).and_return(false)
         put :update, {:id => car.to_param, :backend_brandnew => {}}, valid_session
         response.should render_template("edit")
       end
@@ -148,14 +148,14 @@ describe Backend::Brandnew::CarsController do
 
   describe "DELETE destroy" do
     it "destroys the requested backend_brandnew" do
-      car = Backend::Brandnew::Car.create! valid_attributes
+      car = Car.create! valid_attributes
       expect {
         delete :destroy, {:id => car.to_param}, valid_session
-      }.to change(Backend::Brandnew::Car, :count).by(-1)
+      }.to change(Car, :count).by(-1)
     end
 
     it "redirects to the backend_brandnew_cars list" do
-      car = Backend::Brandnew::Car.create! valid_attributes
+      car = Car.create! valid_attributes
       delete :destroy, {:id => car.to_param}, valid_session
       response.should redirect_to(backend_brandnew_cars_url)
     end
