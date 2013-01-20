@@ -1,29 +1,21 @@
 <div class="block">
-  <div class="secondary-navigation">
-  	
 
+  <%= render "cars/header" , :locals => { :cname => "new_cars" }%>
+  
 
-			    <ul class="wat-cf">
-			     <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "Used")}", cars_path  %></li>
-                              <li class=" active"><%= link_to "#{t("web-app-theme.list", :default => "New")}", brandnew_cars_show_models_path  %></li>     
-	
-			    </ul>
-		   </div>
  
   	
 	</div>
       
       
-   
+   <table>
         <% @car_models.each do |car| -%>
         <tr>
           
           <td>
-            <%= link_to "#{t("web-app-theme", :default => car.name)}", brandnew_cars_path(:action=>"get",:car_name=>car.id) %> 
+           <h3> <%= link_to "#{t("web-app-theme", :default => car.name)}", brandnew_cars_path(:action=>"get",:car_name=>car.id) %></h3> 
           </td>
-         
-        
-          
+   
         </tr>
         <% end -%>
       </table>

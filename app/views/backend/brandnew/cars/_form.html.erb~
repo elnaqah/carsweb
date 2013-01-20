@@ -1,5 +1,9 @@
-<%= form_for(@backend_brandnew_car, :url => url_for(:controller => 'backend/brandnew/cars', :action => 'create'),:method=>"post") do |f| %>
+<<<<<<< HEAD
+<%= form_for(@backend_brandnew_car, :url => url_for(:controller => 'backend/brandnew/cars', :action => 'new'),:method=>"get") do |f| %>
   
+=======
+<%= form_for @backend_brandnew_car, :as => :backend_brandnew_car, :url => locals[:path] do |f| %>
+>>>>>>> d9bb3eb9f488825ccaf9ded1da70aa72814e649b
   <% if @backend_brandnew_car.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@backend_brandnew_car.errors.count, "error") %> prohibited this car from being saved:</h2>

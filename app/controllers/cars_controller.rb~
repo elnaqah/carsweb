@@ -2,7 +2,7 @@ class CarsController < ApplicationController
   # GET /cars
   # GET /cars.json
   def index
-    if (params[:id] != "" && params[:id]&&params[:doors] && params[:doors]!= ""&&params[:PriceFrom]&&params[:PriceFrom]!= ""&& params[:PriceFrom]&&params[:PriceTo]!= "")
+   if (params[:id] != "" && params[:id]&&params[:doors] && params[:doors]!= ""&&params[:PriceFrom]&&params[:PriceFrom]!= ""&& params[:PriceFrom]&&params[:PriceTo]!= "")
       @cars=Car.search_price_door_carid(params[:PriceFrom],params[:PriceTo],true,params[:doors],params[:id])
       @car_doors=params[:doors]
       @model_id=params[:id]
@@ -66,7 +66,22 @@ class CarsController < ApplicationController
     @car = Car.find(params[:id])
     @models= CarModel.get_models_names
   end
-
+  
+  def mycars
+    if session[:user_id]
+      user = User.find(session[:user_id])
+      #@cars = user.cars 
+    if(params[:id] != "" && params[:id])
+      @model_id=params[:id]
+      @cars = user.cars.order(params[:sort]).where(:car_model_id=>params[:id])
+    elsif(params[:PriceFrom] !="" && params[:PriceFrom] && params[:PriceTo] !="" && params[:PriceTo])
+      @cars=user.cars.search(params[:PriceFrom],params[:PriceTo])
+    else
+    @cars=user.cars.order(params[:sort]).all
+    end
+    @models=CarModel.all
+    end
+  end
   # POST /cars
   # POST /cars.json
   def create
@@ -100,6 +115,7 @@ class CarsController < ApplicationController
     session[:admin]=nil
     redirect_to cars_path
   end
+  
   # PUT /cars/1
   # PUT /cars/1.json
   def update

@@ -77,6 +77,7 @@ scope :module => "backend/brandnew" do
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
   match 'admin_signout', :to=> "cars#destroy_admin"
+  match 'mycars', :to => "cars#mycars"
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

@@ -1,42 +1,10 @@
 <div class="block">
-  <div class="secondary-navigation">
-  	<%= javascript_include_tag :defaults%>
 
+  <%= render "header" , :locals => { :cname => "index" }%>
 
-			    <ul class="wat-cf">
-			      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "Used")}", cars_path  %></li>
-                              <li><%= link_to "#{t("web-app-theme.list", :default => "New")}", brandnew_cars_show_models_path  %></li>
-			      <% if session[:user_id]%>
-			      <li><%= link_to "#{t("web-app-theme.new", :default => "Add used car")}", new_car_path %></li>
-			      <% end %>
-			      <% if session[:admin]%>
-			      <li><%= link_to "#{t("web-app-theme.new", :default => "Administration")}", backend_cars_path %></li>
-			      <% end %>
-			      <li class="select">
-       <%= form_tag("/cars",:action=>'index',:method=>"get",:id=>"search") do %>
-       <li>Price from:</li>
-       <li> 
-       <%= text_field_tag :PriceFrom,params[:PriceFrom]%>
-       </li>
-          <li> to:</li>
-      <li> <%= text_field_tag :PriceTo,params[:PriceTo]%></li>
-       <li>
-          <%= select_tag 'doors',options_for_select({'2'=>2,'3'=>3,'4'=>4,'5'=>5},@car_doors),:prompt => "Select Doors" %> 
-       </li>
-
-       <%= submit_tag "Search",:id =>"search_btn"%>
-       </p>
-       <% end %>
-      </li>
-      <li>
-       <%= form_tag("/cars",:action=>'index',:method=>"get") do %>
-       
-        <%= submit_tag "All",:name =>nil%>
-       
-       <% end %>
-      </li>
-			    </ul>
+			    
 		   </div>
+
   <h4><%= flash[:notice] %></h4>
   <div class="content">
   	<table width="1265px">
@@ -49,6 +17,25 @@
 	  				<%= form_tag("/cars",:action => 'index', :method => "get") do %>
 	        		<%= select_tag :id, options_from_collection_for_select(@models, :id, :name,@model_id), :onchange => 'submit()',:prompt => "All Models",:id=>"car_model_id" %> 
 	        		<% end %>
+	        		
+			       <%= form_tag("/cars",:action=>'index',:method=>"get") do %>
+			       <p style="color: black">Price from: 
+			       <%= text_field_tag :PriceFrom,params[:PriceFrom]%>
+			          to:
+			       <%= text_field_tag :PriceTo,params[:PriceTo]%>
+                               
+                              <%= select_tag 'doors',options_for_select({'2'=>2,'3'=>3,'4'=>4,'5'=>5},@car_doors),:prompt => "Select Doors" %> 
+                               
+			       <%= submit_tag "Search",:id =>"search_btn"%>
+			       
+			       </p>
+			       <% end %>
+			      
+			      <%= form_tag("/cars",:action=>'index',:method=>"get") do %>			       
+			        <%= submit_tag "All cars",:name =>nil%>			       
+			       <% end %>
+			       
+      
   				</div>
 		    </td>
                     

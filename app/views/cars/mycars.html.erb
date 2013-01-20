@@ -1,0 +1,72 @@
+<%= render "header", :locals => { :cname => "mycars" }%>
+<div class="select"> 
+            <% if false %><h5 style="color: black">Select Model</h5><% end %>
+            <%= form_tag("/mycars",:action => 'mycars', :method => "get") do %>
+              <%= select_tag :id, options_from_collection_for_select(@models, :id, :name,@model_id), :onchange => 'submit()',:prompt => "All Models",:id=>"car_model_id" %> 
+              <% end %>
+              
+             <%= form_tag("/mycars",:action=>'mycars',:method=>"get") do %>
+             <p style="color: black">Price from: 
+             <%= text_field_tag :PriceFrom,params[:PriceFrom]%>
+                to:
+             <%= text_field_tag :PriceTo,params[:PriceTo]%>
+             <%= submit_tag "Search",:id =>"search_btn"%>
+            
+             </p>
+             <% end %>
+              <%= form_tag("/mycars",:action=>'mycars',:method=>"get") do %>             
+              <%= submit_tag "All cars",:name =>nil%>            
+             <% end %>
+            
+            
+             
+      
+          </div>
+<div class="inner">
+      <table class="table">
+        <tr>
+          
+          <th>
+            <%= link_to "Price", mycars_path({:sort=>"price",:id=>@model_id}) %> 
+			
+          </th>
+          <th>
+			Model
+          </th>
+          <th>
+            <%= link_to "Year", mycars_path({:sort=>"year",:id=>@model_id}) %> 
+          </th>
+          <th>
+          	Owner name    	
+          </th>     
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @cars.each do |car| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= car.price.to_s+" LE" unless car.price.nil?%> 
+          </td>
+          <td>
+            <%= link_to "#{t("web-app-theme.show", :default => car.car_model.name)}", car_path(car) %> 
+          </td>
+         <td>
+            <%= car.year %>
+          </td>
+          <td>
+          	<%= car.user.name unless car.user.nil?%>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", car_path(car) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_car_path(car) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", car_path(car), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+          
+        </tr>
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+      </div>
+    </div>

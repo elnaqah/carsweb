@@ -1,5 +1,7 @@
+
 <%= form_for(@backend_brandnew_car, :url => url_for(:controller => 'backend/brandnew/cars', :action => 'new'),:method=>"get") do |f| %>
   
+
   <% if @backend_brandnew_car.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@backend_brandnew_car.errors.count, "error") %> prohibited this car from being saved:</h2>
