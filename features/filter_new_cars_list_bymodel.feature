@@ -24,9 +24,9 @@ Background: cars and models have been added to database
   And I am on the carsweb home page
   
 Scenario: select Volvo as a car model
-  Given I am on the new cars page
-  And I select "Volvo" from "car_model_id"
-  #Then I reload the page
+  Given I am on the cars page
+  Then I follow "New"
+  Then I follow "Volvo"
   Then I should see "12000"
   And I should see "16000"
   #And I should not see "mini"

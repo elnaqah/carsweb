@@ -11,18 +11,19 @@ Background: Models have been added to database
   | Volvo                  |
   | Kia                    |
   | mini                   |
-  
+
 Scenario: Add a new car
+  Given I login as admin
   Given I am on the cars page
-  And I follow "New"
+  When I follow "Administration"
+  And I follow "add_car"
   When I set the "Price" to "17000"
   And I set the "Cylinders" to "6"
   And I set the "Horse power" to "123"
   And I set the "Doors" to "2"
-  And I check the following : air_bags, abs
+  And I check the following : Air bags, Abs
   And I select "Kia" from "Car model"
-  And I press "Save"
-  When I am on Show of car 1
+  And I press "Create Car"
   Then I should see "Price: 17000"
   Then I should see "Cylinders: 6"
   Then I should see "Horse power: 123"

@@ -17,8 +17,8 @@ module NavigationHelpers
     when /^the cars page$/ then '/cars'
     when /^the new cars page$/ then '/brandnew/cars'
  
-    when /^Show of car (\d+)$/
-      car_path(Car.find($1))
+    when /^Show of car (\d+)$/ then "/cars/#{$1}"
+      
       
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

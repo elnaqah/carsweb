@@ -24,7 +24,7 @@ end
 
 When /I check the following : (.*)/ do |clist|
   clist.split(",").each do | opt |
-    c = "car_" + opt.strip
+    c =opt.strip
     check(c)
   end
 end
@@ -37,4 +37,15 @@ Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #print ">>>>>>"+page.body
   assert page.body.index(e1) < page.body.index(e2)
   #flunk "Unimplemented"
+end
+
+Given /^I login as admin$/ do 
+  steps %Q{ 
+  Given I am on the cars page
+  When I fill in "user_name" with "admin"
+  When I fill in "user_password" with "admin"
+  When I fill in "user_password" with "admin"
+  When I press "Login"
+  Then I should see "Signed in as Administrator"
+  }
 end
