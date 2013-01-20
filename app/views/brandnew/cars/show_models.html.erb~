@@ -36,7 +36,7 @@
         <tr>
           
           <td>
-            <%= link_to "#{t("web-app-theme", :default => car.name)}", brandnew_car_path %> 
+            <%= link_to "#{t("web-app-theme", :default => car.name)}", brandnew_cars_path(:action=>"get",:car_name=>car.id) %> 
           </td>
          
         

@@ -13,7 +13,7 @@ class CarsController < ApplicationController
 
     elsif(params[:PriceFrom] !="" && params[:PriceFrom] && params[:PriceTo] !="" && params[:PriceTo] && params[:id] != "" && params[:id])
       @cars=Car.search_price_carid(params[:PriceFrom],params[:PriceTo],true,params[:id])
-     
+      @model_id=params[:id]
 
     elsif(params[:PriceFrom] !="" && params[:PriceFrom] && params[:PriceTo] !="" && params[:PriceTo])
       @cars=Car.search(params[:PriceFrom],params[:PriceTo],true)

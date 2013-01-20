@@ -8,26 +8,32 @@ class Brandnew::CarsController < ApplicationController
   # GET /brandnew/cars.json
   def index
 
+  car_door=params[:doors] 
   car_id=params[:car_name] || session[:car_name]
   price_from=params[:PriceFrom] || flash[:PriceFrom]
   price_to=params[:PriceTo] || flash[:PriceTo]
   
-  if params[:car_name]!=session[:car_name] or params[:PriceFrom] != flash[:PriceFrom] or params[:PriceTo] != flash[:PriceTo]
+  if (params[:car_name]!=session[:car_name] or params[:PriceFrom] != flash[:PriceFrom] or params[:PriceTo] != flash[:PriceTo] )
 
   session[:car_name]=car_id
   flash[:PriceFrom]=price_from
   flash[:PriceTo]=price_to
+ # flash[:PriceTo]=@car_door  , :doors=>@car_door
 
-  redirect_to :car_name => car_id ,:PriceFrom => price_from , :PriceTo => price_to and return
+
+  redirect_to :car_name => car_id ,:PriceFrom => price_from , :PriceTo => price_to  and return
   end
     
+    if(params[:PriceFrom] !="" && params[:PriceFrom] && params[:PriceTo] !="" && params[:PriceTo] && params[:doors]!="" && params[:doors])
+     @brandnew_cars=Car.find(:all,:conditions =>["price BETWEEN #{price_from} AND #{price_to} AND used =? AND car_model_id=? AND doors=?",false,car_id,car_door])
+  
+    elsif (params[:PriceFrom] !="" && params[:PriceFrom] && params[:PriceTo] !="" && params[:PriceTo])
+      @brandnew_cars=Car.find(:all,:conditions =>["price BETWEEN #{price_from} AND #{price_to} AND used =? AND car_model_id=?",false,car_id])
 
-    if(params[:PriceFrom] !="" && params[:PriceFrom] && params[:PriceTo] !="" && params[:PriceTo])
-      @brandnew_cars=Car.search1(price_from,price_to,false,car_id)
-    else(params[:PriceFrom] =="" && params[:PriceTo] =="")
+    else (params[:PriceFrom] =="" && params[:PriceTo] =="")
       @brandnew_cars=Car.where(:used=>false,:car_model_id=>car_id)
    
-  
+   
     end
 
     respond_to do |format|

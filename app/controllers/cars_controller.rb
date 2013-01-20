@@ -2,7 +2,7 @@ class CarsController < ApplicationController
   # GET /cars
   # GET /cars.json
   def index
-    if (params[:id] != "" && params[:id]&&params[:doors] && params[:doors]!= ""&&params[:PriceFrom]&&params[:PriceFrom]!= ""&& params[:PriceFrom]&&params[:PriceTo]!= "")
+   if (params[:id] != "" && params[:id]&&params[:doors] && params[:doors]!= ""&&params[:PriceFrom]&&params[:PriceFrom]!= ""&& params[:PriceFrom]&&params[:PriceTo]!= "")
       @cars=Car.search_price_door_carid(params[:PriceFrom],params[:PriceTo],true,params[:doors],params[:id])
       @car_doors=params[:doors]
       @model_id=params[:id]
