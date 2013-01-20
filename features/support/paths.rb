@@ -15,6 +15,7 @@ module NavigationHelpers
 
     when /^the (carsweb )?home\s?page$/ then '/cars'
     when /^the cars page$/ then '/cars'
+    when /^the new cars page$/ then '/brandnew/cars'
  
     when /^Show of car (\d+)$/
       car_path(Car.find($1))
