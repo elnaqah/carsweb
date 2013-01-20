@@ -2,14 +2,33 @@ class CarsController < ApplicationController
   # GET /cars
   # GET /cars.json
   def index
-    if(params[:id] != "" && params[:id])
+    if (params[:id] != "" && params[:id]&&params[:doors] && params[:doors]!= ""&&params[:PriceFrom]&&params[:PriceFrom]!= ""&& params[:PriceFrom]&&params[:PriceTo]!= "")
+      @cars=Car.search_price_door_carid(params[:PriceFrom],params[:PriceTo],true,params[:doors],params[:id])
+      @car_doors=params[:doors]
       @model_id=params[:id]
-      @cars = Car.order(params[:sort]).where(:car_model_id=>params[:id],:used=>true)
+
+     elsif (params[:doors] && params[:doors]!= ""&&params[:PriceFrom]&&params[:PriceFrom]!= ""&& params[:PriceFrom]&&params[:PriceTo]!= "")
+      @car_doors=params[:doors]
+      @cars=Car.search_price_door(params[:PriceFrom],params[:PriceTo],true,params[:doors])
+
+    elsif(params[:PriceFrom] !="" && params[:PriceFrom] && params[:PriceTo] !="" && params[:PriceTo] && params[:id] != "" && params[:id])
+      @cars=Car.search_price_carid(params[:PriceFrom],params[:PriceTo],true,params[:id])
+      @model_id=params[:id]
+
     elsif(params[:PriceFrom] !="" && params[:PriceFrom] && params[:PriceTo] !="" && params[:PriceTo])
       @cars=Car.search(params[:PriceFrom],params[:PriceTo],true)
-    
+
+    elsif (params[:doors])
+      @car_doors=params[:doors]
+      @cars=Car.where(:doors=>@car_doors,:used=>true)
+
+    elsif (params[:id] != "" && params[:id])
+      @model_id=params[:id]
+      @cars = Car.order(params[:sort]).where(:car_model_id=>params[:id],:used=>true)
+
     else
     @cars=Car.order(params[:sort]).where(:used=>true)
+
     end
     @models=CarModel.all
     
