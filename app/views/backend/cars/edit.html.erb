@@ -1,6 +1,6 @@
 <h1>Editing backend_car</h1>
 
-<%= render 'form' %>
+<%= render 'form',:locals => {:path=>backend_car_path} %>
 
 <%= link_to 'Show', backend_car_path(@backend_car) %> |
 <%= link_to 'Back', backend_cars_path %>

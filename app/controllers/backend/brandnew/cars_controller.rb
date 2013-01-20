@@ -42,11 +42,10 @@ class Backend::Brandnew::CarsController < ApplicationController
   # POST /backend/brandnew/cars.json
   def create
     @backend_brandnew_car =Car.new(params[:backend_brandnew_car])
-    logger.debug(">>>>>>>>>"+@backend_brandnew_car.class.to_s)
     respond_to do |format|
       @backend_brandnew_car.used=false
       if @backend_brandnew_car.save
-        format.html { redirect_to @backend_brandnew_car, notice: 'Car was successfully created.' }
+        format.html { redirect_to backend_brandnew_car_path(@backend_brandnew_car), notice: 'Car was successfully created.' }
         format.json { render json: @backend_brandnew_car, status: :created, location: @backend_brandnew_car }
       else
         format.html { render action: "new" }

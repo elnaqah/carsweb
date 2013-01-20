@@ -59,7 +59,7 @@ class Backend::CarModelsController < ApplicationController
 
     respond_to do |format|
       if @backend_car_model.update_attributes(params[:backend_car_model])
-        format.html { redirect_to @backend_car_model, notice: 'Car model was successfully updated.' }
+        format.html { redirect_to backend_car_model_path(@backend_car_model), notice: 'Car model was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

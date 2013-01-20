@@ -1,4 +1,4 @@
-<%= form_for @backend_brandnew_car, :as => :backend_brandnew_car, :url => backend_brandnew_car_path do |f| %>
+<%= form_for @backend_brandnew_car, :as => :backend_brandnew_car, :url => locals[:path] do |f| %>
   <% if @backend_brandnew_car.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@backend_brandnew_car.errors.count, "error") %> prohibited this backend_brandnew_car from being saved:</h2>
