@@ -6,6 +6,7 @@ Given /the following cars exist/ do |cars_table|
     #p car
     c = Car.create!(car)
   end
+  #print ">>>>>>"+page.body
   #flunk "Unimplemented"
 end
 
@@ -33,6 +34,7 @@ When /^I reload the page$/ do
 end
 
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
+  #print ">>>>>>"+page.body
   assert page.body.index(e1) < page.body.index(e2)
   #flunk "Unimplemented"
 end

@@ -15,12 +15,12 @@ Background:cars and models have been added to the database
   | mini                   |
  
   Given the following cars exist:
-  | price                   | car_model_id         | year       | cylinders | horse_power | doors | air_bags | abs  |
-  | 5000 LE                 |	1		   | 2008-11-22 | 6         | 12          | 4     | true     | true |
-  | 52000 LE                |	2		   | 2006-08-28 | 4         | 15          | 2     | true     | false |
-  | 51000 LE                |	3		   | 2012-01-22 | 7         | 11          | 6     | false    | true |
-  | 60000 LE                |	3		   | 2012-01-22 | 7         | 11          | 6     | false    | true |
-  | 53000 LE                |	3		   | 2012-01-22 | 7         | 11          | 6     | false    | true |
+  | price                   | car_model_id         | year       | cylinders | horse_power | doors | air_bags | abs  | used |
+  | 5000 LE                 |	1		   | 2008-11-22 | 6         | 12          | 4     | true     | true | true |
+  | 52000 LE                |	2		   | 2006-08-28 | 4         | 15          | 2     | true     | false | true |
+  | 51000 LE                |	3		   | 2012-01-22 | 7         | 11          | 6     | false    | true | true |
+  | 60000 LE                |	3		   | 2012-01-22 | 7         | 11          | 6     | false    | true | true |
+  | 53000 LE                |	3		   | 2012-01-22 | 7         | 11          | 6     | false    | true | true |
  
   And I am on the carsweb homepage
 
