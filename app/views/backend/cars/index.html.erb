@@ -2,9 +2,11 @@
     <ul class="wat-cf">
       <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "Cars")}", backend_cars_path  %></li>
       <li><%= link_to "#{t("web-app-theme.new", :default => "Cars Model")}", backend_car_models_path %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New Car")}", backend_brandnew_cars_path %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "User View")}", cars_path %></li>
     </ul>
   </div>
-<h1>Listing backend cars</h1>
+<h1>Used cars</h1>
 
 <table>
   <tr>
@@ -41,4 +43,4 @@
 <br />
 
 <%= link_to 'New Car', new_backend_car_path %>
-<%= link_to 'Back to User View', cars_path %>
+

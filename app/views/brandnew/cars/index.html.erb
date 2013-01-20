@@ -1,0 +1,74 @@
+<div class="block">
+  <%= render "cars/header" , :locals => { :cname => "new_cars" }%>
+ 
+              <div class="select"> 
+            
+ 
+              
+             <%= form_tag("/brandnew/cars",:action=>'index',:method=>"get") do %>
+             <p style="color: black">Price from: 
+             <%= text_field_tag :PriceFrom,params[:PriceFrom]%>
+                to:
+             <%= text_field_tag :PriceTo,params[:PriceTo]%>
+
+             <%= hidden_field_tag :car_name, value = @car_id %>
+             <%= submit_tag "Search",:id =>"search_btn"%>
+             
+             </p>
+             <% end %>
+            
+            <%= form_tag("/brandnew/cars",:action=>'index',:method=>"get") do %>   
+            <%= hidden_field_tag :car_name, value =  @car_id %>         
+              <%= submit_tag "All cars",:name =>nil%>            
+             <% end %>
+             
+      
+          </div>
+  <h4><%= flash[:notice] %></h4>
+  
+      
+      
+    <div class="inner">
+      <table class="table">
+        <tr>
+          
+          <th>
+            <%= link_to "Price", brandnew_cars_path({:sort=>"price",:car_name=>@car_id}) %> 
+			
+          </th>
+          <th>
+			Model
+          </th>
+          <th>
+            <%= link_to "Year", brandnew_cars_path({:sort=>"year",:car_name=>@car_id}) %> 
+          </th>
+              
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @brandnew_cars.each do |car| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= car.price.to_s+" LE" unless car.price.nil?%> 
+          </td>
+          <td>
+            <%= link_to "#{t("web-app-theme.show", :default => car.car_model.name)}", brandnew_car_path(car) %> 
+          </td>
+         <td>
+            <%= car.year %>
+          </td>
+         
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", brandnew_car_path(car) %>
+          </td>
+          
+        </tr>
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

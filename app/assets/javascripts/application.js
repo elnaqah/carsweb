@@ -9,7 +9,24 @@
 //
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
-//
+//if($('#PriceFrom').val() ==  "" && $('#PriceTo').val() ==  "") 
+//   alert("Please enter prices in both price fields");
+//else if($('#PriceFrom').val() =~ r%{^[0-9]$})
+
+  // alert("enter numbers");
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require_tree 
+//function hello() {
+
+
+
+//if(($('#PriceFrom').val()=="" && $('#PriceTo').val()=="")||($('#PriceFrom').val()=="")||( $('#PriceTo').val()=="")) 
+//  alert("Please enter prices in both price fields");
+
+//else if($('#PriceFrom').val() =~ r%{^[0-9]$})
+//   alert("Please enter prices in digits");
+//else $('#search').submit();
+
+
+//} 

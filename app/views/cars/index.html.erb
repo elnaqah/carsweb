@@ -1,33 +1,7 @@
 <div class="block">
-  <div class="secondary-navigation">
-  	
-			    <ul class="wat-cf">
-			      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", cars_path  %></li>
-			      <% if session[:user_id]%>
-			      <li><%= link_to "#{t("web-app-theme.new", :default => "Add used car")}", new_car_path %></li>
-			      <% end %>
-			      <% if session[:admin]%>
-			      <li><%= link_to "#{t("web-app-theme.new", :default => "Administration")}", backend_cars_path %></li>
-			      <% end %>
-			      <li class="select">
-       <%= form_tag("/cars",:action=>'index',:method=>"get") do %>
-       <p>Price from: 
-       <%= text_field_tag :PriceFrom,params[:PriceFrom]%>
-          to:
-       <%= text_field_tag :PriceTo,params[:PriceTo]%>
-       <%= submit_tag "Search",:id =>"search_btn"%>
-       </p>
-       <% end %>
-      </li>
-      <li>
-       <%= form_tag("/cars",:action=>'index',:method=>"get") do %>
-       <p>
-        <%= submit_tag "All",:name =>nil%>
-       </p>
-       <% end %>
-      </li>
-			    </ul>
-		   </div>
+
+  <%= render "header" , :locals => { :cname => "index" }%>
+
   <h4><%= flash[:notice] %></h4>
   <div class="content">
   	<table width="1265px">
@@ -40,6 +14,22 @@
 	  				<%= form_tag("/cars",:action => 'index', :method => "get") do %>
 	        		<%= select_tag :id, options_from_collection_for_select(@models, :id, :name,@model_id), :onchange => 'submit()',:prompt => "All Models",:id=>"car_model_id" %> 
 	        		<% end %>
+	        		
+			       <%= form_tag("/cars",:action=>'index',:method=>"get") do %>
+			       <p style="color: black">Price from: 
+			       <%= text_field_tag :PriceFrom,params[:PriceFrom]%>
+			          to:
+			       <%= text_field_tag :PriceTo,params[:PriceTo]%>
+			       <%= submit_tag "Search",:id =>"search_btn"%>
+			       
+			       </p>
+			       <% end %>
+			      
+			      <%= form_tag("/cars",:action=>'index',:method=>"get") do %>			       
+			        <%= submit_tag "All cars",:name =>nil%>			       
+			       <% end %>
+			       
+      
   				</div>
 		    </td>
 		    <td align="right">

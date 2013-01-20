@@ -6,13 +6,22 @@ Carsweb::Application.routes.draw do
   resources :cars
   
   resources :users
-
+  get 'brandnew/cars/show_models'
   #backend 
   %w{cars car_models owners}.each do |class_name|
  scope :module => "backend" do
   resources class_name.to_sym , :path=>"/backend/#{class_name}" , :as => "backend_#{class_name}".to_sym
  end
 end
+ #brandnew
+scope :module => "brandnew" do
+  resources :cars , :path=>"/brandnew/cars" , :as => :brandnew_cars
+ end
+ #backend/brandnew
+scope :module => "backend/brandnew" do
+  resources :cars , :path=>"/backend/brandnew/cars" , :as => :backend_brandnew_cars
+ end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -68,6 +77,7 @@ end
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
   match 'admin_signout', :to=> "cars#destroy_admin"
+  match 'mycars', :to => "cars#mycars"
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

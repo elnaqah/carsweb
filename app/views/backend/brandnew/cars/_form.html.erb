@@ -1,0 +1,50 @@
+<%= form_for @backend_brandnew_car, :as => :backend_brandnew_car, :url => locals[:path] do |f| %>
+  <% if @backend_brandnew_car.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@backend_brandnew_car.errors.count, "error") %> prohibited this backend_brandnew_car from being saved:</h2>
+
+      <ul>
+      <% @backend_brandnew_car.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="field">
+    <%= f.label :year %><br />
+    <%= f.date_select :year %>
+  </div>
+  <div class="field">
+    <%= f.label :car_model_id, t("activerecord.attributes.car.car_model_id", :default => "Car model"), :class => :label %>
+    <%= f.select :car_model_id, options_from_collection_for_select(@models, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :cylinders %><br />
+    <%= f.number_field :cylinders %>
+  </div>
+  <div class="field">
+    <%= f.label :horse_power %><br />
+    <%= f.number_field :horse_power %>
+  </div>
+  <div class="field">
+    <%= f.label :doors %><br />
+    <%= f.number_field :doors %>
+  </div>
+  <div class="field">
+    <%= f.label :air_bags %><br />
+    <%= f.check_box :air_bags %>
+  </div>
+  <div class="field">
+    <%= f.label :abs %><br />
+    <%= f.check_box :abs %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.number_field :price %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

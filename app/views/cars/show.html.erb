@@ -1,14 +1,8 @@
 
 <div class="block">
-  <div class="secondary-navigation">
-    <ul class="wat-cf">
-      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", cars_path  %></li>
-      <% if session[:user_id]%>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "Add used car")}", new_car_path %></li>
-      <% end %>
-      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", car_path %></li>
-    </ul>
-  </div>
+
+  <%= render "header" ,:locals => {:cname => "show"}%>
+
   <div class="content">
     <div class="inner">
     

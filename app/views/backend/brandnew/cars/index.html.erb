@@ -1,0 +1,43 @@
+<div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li><%= link_to "#{t("web-app-theme.list", :default => "Cars")}", backend_cars_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Cars Model")}", backend_car_models_path %></li>
+      <li class="first active"><%= link_to "#{t("web-app-theme.new", :default => "New Car")}", backend_brandnew_cars_path %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "User View")}", cars_path %></li>
+    </ul>
+  </div>
+<h1>New cars</h1>
+
+<table>
+  <tr>
+    <th>Year</th>
+    <th>Model</th>
+    <th>Cylinders</th>
+    <th>Horse power</th>
+    <th>Doors</th>
+    <th>Air bags</th>
+    <th>Abs</th>
+    <th>Price</th>
+  </tr>
+
+<% @backend_brandnew_cars.each do |backend_brandnew_car| %>
+  <tr>
+    <td><%= backend_brandnew_car.year %></td>
+    <td><%= backend_brandnew_car.car_model.name %></td>
+    <td><%= backend_brandnew_car.cylinders %></td>
+    <td><%= backend_brandnew_car.horse_power %></td>
+    <td><%= backend_brandnew_car.doors %></td>
+    <td><%= backend_brandnew_car.air_bags %></td>
+    <td><%= backend_brandnew_car.abs %></td>
+    <td><%= backend_brandnew_car.price %></td>
+
+    <td><%= link_to 'Show', backend_brandnew_car_path(backend_brandnew_car) %></td>
+    <td><%= link_to 'Edit', edit_backend_brandnew_car_path(backend_brandnew_car) %></td>
+    <td><%= link_to 'Destroy', backend_brandnew_car_path(backend_brandnew_car), confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Car', new_backend_brandnew_car_path %>

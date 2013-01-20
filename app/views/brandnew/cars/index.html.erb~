@@ -1,0 +1,82 @@
+<div class="block">
+  <div class="secondary-navigation">
+  	<%= javascript_include_tag :defaults%>
+
+
+			    <ul class="wat-cf">
+			      <li><%= link_to "#{t("web-app-theme.list", :default => "Used")}", cars_path  %></li>
+                              <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "New")}", brandnew_cars_path  %></li>
+			      
+			      <% if session[:user_id]%>
+			      <li><%= link_to "#{t("web-app-theme.new", :default => "Add used car")}", new_car_path %></li>
+			      <% end %>
+			      <% if session[:admin]%>
+			      <li><%= link_to "#{t("web-app-theme.new", :default => "Administration")}", backend_cars_path %></li>
+			      <% end %>
+			      <li class="select">
+       <%= form_tag("/brandnew/cars",:action=>'index',:method=>"get",:id=>"search") do %>
+       <p>Price from: 
+       <%= text_field_tag :PriceFrom,params[:PriceFrom]%>
+          to:
+       <%= text_field_tag :PriceTo,params[:PriceTo]%>
+       <%= submit_tag "Search",:id =>"search_btn"%>
+       </p>
+       <% end %>
+      </li>
+      <li>
+       <%= form_tag("/brandnew/cars?PriceFrom=\"\"&PriceTo=\"\"",:action=>'index',:method=>"get") do %>
+       <p>
+        <%= submit_tag "All",:name =>nil%>
+       </p>
+       <% end %>
+      </li>
+			    </ul>
+		   </div>
+  <h4><%= flash[:notice] %></h4>
+  
+      
+      
+    <div class="inner">
+      <table class="table">
+        <tr>
+          
+          <th>
+            <%= link_to "Price", cars_path({:sort=>"price",:id=>@model_id}) %> 
+			
+          </th>
+          <th>
+			Model
+          </th>
+          <th>
+            <%= link_to "Year", cars_path({:sort=>"year",:id=>@model_id}) %> 
+          </th>
+              
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @brandnew_cars.each do |car| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= car.price.to_s+" LE" unless car.price.nil?%> 
+          </td>
+          <td>
+            <%= link_to "#{t("web-app-theme.show", :default => car.car_model.name)}", brandnew_car_path(car) %> 
+          </td>
+         <td>
+            <%= car.year %>
+          </td>
+         
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", brandnew_car_path(car) %>
+          </td>
+          
+        </tr>
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
