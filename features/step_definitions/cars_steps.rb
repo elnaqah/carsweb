@@ -36,3 +36,14 @@ Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   assert page.body.index(e1) < page.body.index(e2)
   #flunk "Unimplemented"
 end
+
+Then /^I should see only cars with prices that range from "(.*)" to "(.*)"$/ do |price_from,price_to| 
+cars_within_this_range=Car.where("price BETWEEN #{price_from} AND #{price_to}").count
+assert(page.all('table.table tr').count.should == cars_within_this_range+1)
+end
+
+
+
+
+
+

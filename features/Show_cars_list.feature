@@ -13,10 +13,10 @@ Background: cars and models have been added to database
   | mini                   |
   
   Given the following cars exist:
-  | price                   | car_model_id | year       | cylinders | horse_power | doors | air_bags | abs  |
-  | 12000                  |	1		   | 2012-12-23 | 6         | 12          | 4     | true     | true |
-  | 13000                  |	2		   | 2012-12-21 | 4         | 15          | 2     | true     | false |
-  | 11000                  |	3		   | 2012-12-25 | 7         | 11          | 6     | false     | true |
+  | price                   | car_model_id | year       | cylinders | horse_power | doors | air_bags | abs  |used|
+  | 12000                  |	1		   | 2012-12-23 | 6         | 12          | 4     | true     | true |true|
+  | 13000                  |	2		   | 2012-12-21 | 4         | 15          | 2     | true     | false |true|
+  | 11000                  |	3		   | 2012-12-25 | 7         | 11          | 6     | false     | true |true|
 
   And I am on the carsweb home page
   
