@@ -23,7 +23,7 @@ class Brandnew::CarsController < ApplicationController
  # flash[:PriceTo]=@car_door  , :doors=>@car_door
 
 
-  redirect_to :car_name => @car_id ,:PriceFrom => price_from , :PriceTo => price_to and return
+  redirect_to :car_name => @car_id ,:PriceFrom => price_from , :PriceTo => price_to ,:doors=>@car_door and return
 
   end
     

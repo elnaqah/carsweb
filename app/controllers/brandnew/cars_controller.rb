@@ -33,6 +33,8 @@ if(params[:PriceFrom] !="" && params[:PriceFrom] && params[:PriceTo] !="" && par
   
     elsif (params[:PriceFrom] !="" && params[:PriceFrom] && params[:PriceTo] !="" && params[:PriceTo])
       @brandnew_cars=Car.find(:all,:conditions =>["price BETWEEN #{price_from} AND #{price_to} AND used =? AND car_model_id=?",false,@car_id])
+    elsif(params[:PriceFrom] =="" && params[:PriceTo] ==""&& params[:doors] && params[:doors]!="")
+      @brandnew_cars=Car.where(:used=>false,:car_model_id=>@car_id,:doors=>@car_door).order(params[:sort])
 
      else(params[:PriceFrom] =="" && params[:PriceTo] =="")
       @brandnew_cars=Car.where(:used=>false,:car_model_id=>@car_id).order(params[:sort])
