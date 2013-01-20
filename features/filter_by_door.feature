@@ -29,3 +29,8 @@ Given I am on the cars page
 
 And I select "2" from "doors"
  
+And I press "search_btn"
+
+Then I should see "17000"
+
+And I should see "13000"

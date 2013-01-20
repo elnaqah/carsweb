@@ -23,4 +23,12 @@ Background: cars and models have been added to database
 
   And I am on the carsweb home page
 
+Scenario:select 2 door car
+
+Given I am on the cars page
+
+And I select "2" from "doors"
  
+And I press "search_btn"
+
+Then I should see "17000"
